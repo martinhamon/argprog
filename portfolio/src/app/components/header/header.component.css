@@ -27,4 +27,9 @@
     margin-top: auto;
     margin-right: autogit;
     position: relative;
+    
+}
+.inline
+{
+    display: inline;
 }

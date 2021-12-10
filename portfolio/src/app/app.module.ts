@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
- 
+import { MatCardModule } from '@angular/material/card';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { BodyComponent } from './components/body/body.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ImageButtonComponent } from './components/image-button/image-button.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
  
 @NgModule({
   declarations: [
@@ -20,7 +21,9 @@ import { ImageButtonComponent } from './components/image-button/image-button.com
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    BrowserAnimationsModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

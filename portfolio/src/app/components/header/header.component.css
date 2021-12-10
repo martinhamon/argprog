@@ -1,11 +1,41 @@
-.container{
+.mat-card{
 
     background-color: bisque;
-    border-radius: 10px;
+    border-radius: 32px;
+    margin: 10px 10px;
+    padding: 20px;
     border-style: groove;
     border-width: 1px;
     border-color: darkgrey;
 }
+
+.mat-card#first-card{
+    padding: 0;
+}
+
+div#profile-background{
+    display: flex;
+    z-index: 1;
+}
+div#profile-background img{
+    width: 100%;
+    border-radius: 32px 32px 0 0;
+}
+
+.profile-image
+{
+    border-radius: 50%;
+    width: 152px;
+    height: 152px;
+    margin-top: -110;
+    z-index: 1;
+}
+
+div#info-actions
+{
+    display: flex;
+}
+
 .image-responsive
 {
     display: block;

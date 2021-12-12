@@ -1,4 +1,4 @@
-.mat-card{
+.mat-card:not(.no-mat){
 
     background-color: bisque;
     border-radius: 32px;
@@ -48,7 +48,7 @@ div#info-actions
 {
     display: flex;
     width: 100%;
-    max-height: 30%;
+    height: auto;
     margin-left:auto ;
     margin-right: auto;
     z-index: 1;
@@ -73,4 +73,25 @@ div#info-actions
 .info-tech{
 margin-left: 80%;
 margin-top: -75px;
+padding-right: 10px;
+
 }
+.mat-raised-button{
+    margin-left: 10px;
+    color: whitesmoke;
+    background-color: royalblue;
+    
+}
+.mat-stroked-button{
+    margin-left: 10px;
+}
+.study-link{
+    background-image: url('../../../assets/images/ulp.png');
+    max-width: 100%;
+  height: auto;
+  }
+
+  .no-mat{
+      margin: auto ;
+      border-radius: 0 0 32px 32px;
+  }

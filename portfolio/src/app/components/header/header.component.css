@@ -75,16 +75,6 @@ div#info-actions
 
 }
 
-.info-tech {
-  max-width: 50%;
-margin-left: 70%;
-margin-top: -75px;
-padding-right: 10px;
-
-
-word-wrap: break-word
-
-}
 .info-data{
   max-width: 50%;
 margin-top: -75px;
@@ -118,4 +108,15 @@ word-wrap: break-word
 .info-contact{
   max-width: 50%;
   word-break: break-all;
+}
+
+.info-tech {
+  max-width: 50%;
+margin-left: 70%;
+margin-top: -75px;
+padding-right: 10px;
+
+
+word-wrap: break-word
+
 }

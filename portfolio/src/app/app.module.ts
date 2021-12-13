@@ -15,6 +15,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ImageButtonComponent } from './components/image-button/image-button.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MhCardComponent } from './components/mh-card/mh-card.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
  
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { MhCardComponent } from './components/mh-card/mh-card.component';
     BodyComponent,
     FooterComponent,
     ImageButtonComponent,
-    MhCardComponent
+    MhCardComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,

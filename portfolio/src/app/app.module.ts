@@ -7,7 +7,8 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatButton, MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIcon, MatIconModule} from '@angular/material/icon';
-
+import { MatSidenavModule } from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
 
 
 
@@ -41,7 +42,9 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     MatButtonToggleModule,
     MatButtonModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,6 @@
 .mat-card:not(.no-mat){
 
-    background-color: bisque;
+    background-color: rgb(255, 255, 255);
     border-radius: 32px;
     margin: 10px 10px;
     padding: 20px;
@@ -12,7 +12,12 @@
 .mat-card#first-card{
     padding: 0;
 }
-
+.size{
+  max-width: 500px;
+  max-height: 312px;
+  margin-left: auto;
+  margin-right: auto;
+}
 div#profile-background{
     display: flex;
     z-index: 1;
@@ -48,7 +53,7 @@ div#info-actions
 {
     display: flex;
     width: 100%;
-    height: auto;
+    max-height: 50%;
     margin-left:auto ;
     margin-right: auto;
     z-index: 1;
@@ -70,17 +75,27 @@ div#info-actions
 
 }
 
-.info-tech{
-margin-left: 80%;
+.info-tech {
+  max-width: 50%;
+margin-left: 70%;
 margin-top: -75px;
 padding-right: 10px;
+
+
+word-wrap: break-word
+
+}
+.info-data{
+  max-width: 50%;
+margin-top: -75px;
+word-wrap: break-word
 
 }
 .mat-raised-button{
     margin-left: 10px;
     color: whitesmoke;
     background-color: royalblue;
-    
+
 }
 .mat-stroked-button{
     margin-left: 10px;
@@ -89,9 +104,18 @@ padding-right: 10px;
     background-image: url('../../../assets/images/ulp.png');
     max-width: 100%;
   height: auto;
+  display: inline;
+  border: 5px;
+  border-color: darkgrey;
+
   }
 
   .no-mat{
       margin: auto ;
+      margin-top: 10px;
       border-radius: 0 0 32px 32px;
   }
+.info-contact{
+  max-width: 50%;
+  word-break: break-all;
+}

@@ -5,6 +5,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatCardModule } from '@angular/material/card';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatButton, MatButtonModule} from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIcon, MatIconModule} from '@angular/material/icon';
+
+
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,7 +21,7 @@ import { ImageButtonComponent } from './components/image-button/image-button.com
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MhCardComponent } from './components/mh-card/mh-card.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
- 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +39,9 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     BrowserAnimationsModule,
     MatCardModule,
     MatButtonToggleModule,
-    MatButtonModule
+    MatButtonModule,
+    MatToolbarModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

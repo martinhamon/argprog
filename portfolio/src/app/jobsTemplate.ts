@@ -1,4 +1,4 @@
-export interface Jobs{
+export interface Job{
     id: number,
     job_logo: String,
     job_title: String,

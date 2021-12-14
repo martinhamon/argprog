@@ -3,7 +3,7 @@
     {
       "id":1,
       "job_logo": "Terminar modulo uno ",
-      "job_title": "Titulo de trabajo",
+      "job_title": "Titulo de trabajo UNO",
       "job_tasks": "Tareas desempeñadas",
       "date_in": "13/12/2021",
       "date_out" : "13/12/2021"
@@ -11,7 +11,7 @@
     {
       "id":2,
       "job_logo": "Terminar modulo uno ",
-      "job_title": "Titulo de trabajo 2",
+      "job_title": "Titulo de trabajo DOS",
       "job_tasks": "Tareas desempeñadas 2",
       "date_in": "13/12/2021",
       "date_out" : "13/12/2021"

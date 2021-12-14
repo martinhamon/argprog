@@ -1,19 +1,20 @@
 {
-  "posts": [
+  "jobs": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "id":1,
+      "job_logo": "Terminar modulo uno ",
+      "job_title": "Titulo de trabajo",
+      "job_tasks": "Tareas desempeñadas",
+      "date_in": "13/12/2021",
+      "date_out" : "13/12/2021"
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "id":2,
+      "job_logo": "Terminar modulo uno ",
+      "job_title": "Titulo de trabajo",
+      "job_tasks": "Tareas desempeñadas",
+      "date_in": "13/12/2021",
+      "date_out" : "13/12/2021"
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

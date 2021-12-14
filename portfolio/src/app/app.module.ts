@@ -9,8 +9,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIcon, MatIconModule} from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
-
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -23,7 +23,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MhCardComponent } from './components/mh-card/mh-card.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import {HttpClient, HttpClientModule, HttpHandler} from '@angular/common/http';
-import { EducationCardComponent } from './components/education-card/education-card.component'
+import { EducationCardComponent } from './components/education-card/education-card.component';
+import { SkillsCardComponent } from './components/skills-card/skills-card.component';
+import { ProyectsCardComponent } from './components/proyects-card/proyects-card.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +35,9 @@ import { EducationCardComponent } from './components/education-card/education-ca
     ImageButtonComponent,
     MhCardComponent,
     NavBarComponent,
-    EducationCardComponent
+    EducationCardComponent,
+    SkillsCardComponent,
+    ProyectsCardComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +51,10 @@ import { EducationCardComponent } from './components/education-card/education-ca
     MatIconModule,
     MatSidenavModule,
     MatListModule,
-    HttpClientModule
+    HttpClientModule,
+    MatProgressSpinnerModule,
+    MatGridListModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

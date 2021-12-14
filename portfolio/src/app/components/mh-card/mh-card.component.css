@@ -1,15 +1,9 @@
-.mat-card:not(.no-mat){
 
-    background-color: bisque;
-    border-radius: 32px;
-    margin: 10px 10px;
-    padding: 20px;
-    border-style: groove;
-    border-width: 1px;
-    border-color: darkgrey;
-}
 
 .btn-edit{
     margin-top: 5px;
     margin-right: 10px;
+}
+.card-subtitle{
+  margin-right: 25px;
 }

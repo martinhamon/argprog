@@ -22,7 +22,8 @@ import { ImageButtonComponent } from './components/image-button/image-button.com
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MhCardComponent } from './components/mh-card/mh-card.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import {HttpClient, HttpClientModule, HttpHandler} from '@angular/common/http'
+import {HttpClient, HttpClientModule, HttpHandler} from '@angular/common/http';
+import { EducationCardComponent } from './components/education-card/education-card.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import {HttpClient, HttpClientModule, HttpHandler} from '@angular/common/http'
     FooterComponent,
     ImageButtonComponent,
     MhCardComponent,
-    NavBarComponent
+    NavBarComponent,
+    EducationCardComponent
   ],
   imports: [
     BrowserModule,

@@ -1,12 +1,25 @@
 
 
-    <mat-card class="no-mat">
-      <mat-card-title>{{job.job_title}} </mat-card-title>
+    <mat-card class="jobs">
+      <!--mat-card-title>{{job.job_title}} </mat-card-title>
     <mat-card-subtitle class="card-subtitle">
-      Signa empresa dedicada a disgnostico por imagenes. Administracion e implementacion de sistemas informaticos
-     </mat-card-subtitle>
+      {{job.job_title}}
+     </mat-card-subtitle-->
+     <mat-card-title-group>
+      <img mat-card-sm-image  src="{{job.job_logo}}" >
+      <mat-card-title>{{job.job_title}}</mat-card-title>
+      <mat-card-subtitle>{{job.job_sub_title}}</mat-card-subtitle>
+
+    </mat-card-title-group>
+     <mat-card-content>
+      {{job.job_tasks}}
+      <br> <br>
+      Fecha ingreso: {{job.date_in}} <br>
+      Fecha de egreso: {{job.date_out}}
+     </mat-card-content>
     <mat-card-actions align="end">
-     <app-image-button class="btn-edit"></app-image-button>
+     <app-image-button [icon]="iconEdit" class="btn-edit"></app-image-button>
+     <app-image-button [icon]="iconDelete" class="btn-edit"></app-image-button>
     </mat-card-actions>
   </mat-card>
 

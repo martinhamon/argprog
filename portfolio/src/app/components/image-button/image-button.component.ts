@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-image-button',
@@ -6,7 +6,7 @@ import { faPen } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./image-button.component.css']
 })
 export class ImageButtonComponent implements OnInit {
-  faPen = faPen;
+  @Input() icon = faPen;
   constructor() { }
 
   ngOnInit(): void {

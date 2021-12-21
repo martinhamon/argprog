@@ -11,7 +11,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatGridListModule} from '@angular/material/grid-list';
-
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,7 +26,9 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import {HttpClient, HttpClientModule, HttpHandler} from '@angular/common/http';
 import { EducationCardComponent } from './components/education-card/education-card.component';
 import { SkillsCardComponent } from './components/skills-card/skills-card.component';
-import { ProyectsCardComponent } from './components/proyects-card/proyects-card.component'
+import { ProyectsCardComponent } from './components/proyects-card/proyects-card.component';
+import { LoginComponent } from './components/login/login.component'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +40,8 @@ import { ProyectsCardComponent } from './components/proyects-card/proyects-card.
     NavBarComponent,
     EducationCardComponent,
     SkillsCardComponent,
-    ProyectsCardComponent
+    ProyectsCardComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -54,6 +58,8 @@ import { ProyectsCardComponent } from './components/proyects-card/proyects-card.
     HttpClientModule,
     MatProgressSpinnerModule,
     MatGridListModule,
+    FlexLayoutModule,
+    MatFormFieldModule,
 
   ],
   providers: [],

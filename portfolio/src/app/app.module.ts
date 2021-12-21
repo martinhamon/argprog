@@ -31,6 +31,7 @@ import { LoginComponent } from './components/login/login.component'
 
 
 import { RouterModule } from '@angular/router';
+import { PortfolioComponent } from './components/portfolio/portfolio.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { RouterModule } from '@angular/router';
     EducationCardComponent,
     SkillsCardComponent,
     ProyectsCardComponent,
-    LoginComponent
+    LoginComponent,
+    PortfolioComponent
   ],
   imports: [
     BrowserModule,

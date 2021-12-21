@@ -29,6 +29,10 @@ import { SkillsCardComponent } from './components/skills-card/skills-card.compon
 import { ProyectsCardComponent } from './components/proyects-card/proyects-card.component';
 import { LoginComponent } from './components/login/login.component'
 
+
+import { RouterModule } from '@angular/router';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,6 +64,7 @@ import { LoginComponent } from './components/login/login.component'
     MatGridListModule,
     FlexLayoutModule,
     MatFormFieldModule,
+    RouterModule
 
   ],
   providers: [],

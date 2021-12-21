@@ -2,15 +2,36 @@
 <div fxLayout="row" fxLayoutAlign="center center">
 
 <mat-card >
-<form class="login-main">
+<form [formGroup]="form" class="login-main">
   <div class="mb-3">
     <label for="email" class="form-label">Email </label>
-    <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+    <input
+    [ngClass]="{'is-invalid': Email?.errors && Email?.touched, 'is-valid':!Email?.errors && Email?.touched}"
+    type="email" formControlName="email" class="form-control" id="email" aria-describedby="emailHelp">
+    <div *ngIf="Email?.errors && Email?.touched" class="text-danger">
+      <p *ngIf="Email?.hasError('required')" >
+
+      Email requerido
+      </p>
+      <p *ngIf="Email?.hasError('email')" >
+
+       Email invalido
+        </p>
+    </div>
     <div id="emailHelp" class="form-text">Nunca compartiremos sus datos.</div>
   </div>
   <div class="mb-3">
     <label for="inputPassword" class="form-label">Password</label>
-    <input type="password" class="form-control" id="inputPassword1">
+    <input
+    [ngClass]="{'is-invalid': Password?.errors && Email?.touched, 'is-valid':!Password?.errors && Email?.touched}"
+     type="password" formControlName="password" class="form-control" id="inputPassword1">
+    <div *ngIf="Password?.errors && Password?.touched" class="text-danger">
+      <p *ngIf="Password?.hasError('required')" >
+
+      Password requerido
+      </p>
+
+    </div>
   </div>
   <div class="mb-3 form-check">
     <input type="checkbox" class="form-check-input" id="exampleCheck1">

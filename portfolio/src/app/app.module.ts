@@ -32,6 +32,7 @@ import { LoginComponent } from './components/login/login.component'
 
 import { RouterModule } from '@angular/router';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
     MatGridListModule,
     FlexLayoutModule,
     MatFormFieldModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
 
   ],
   providers: [],

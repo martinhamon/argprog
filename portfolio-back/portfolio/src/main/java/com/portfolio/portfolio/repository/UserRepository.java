@@ -4,8 +4,9 @@
  */
 package com.portfolio.portfolio.repository;
 
-import com.portfolio.portfolio.model.Persona;
+import com.portfolio.portfolio.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -13,8 +14,8 @@ import org.springframework.stereotype.Repository;
  * @author MH
  */
 @Repository
-public interface PersonaRepository extends JpaRepository<Persona, Long>{
-    
+public interface UserRepository extends JpaRepository<User, Long>{
+   
     
     
 }

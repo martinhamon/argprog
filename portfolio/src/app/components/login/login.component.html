@@ -2,7 +2,7 @@
 <div fxLayout="row" fxLayoutAlign="center center">
 
 <mat-card >
-<form [formGroup]="form" class="login-main">
+<form [formGroup]="form" (ngSubmit)="onLogin($event)" class="login-main">
   <div class="mb-3">
     <label for="email" class="form-label">Email </label>
     <input

@@ -4,6 +4,7 @@
  */
 package com.portfolio.portfolio.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.Column;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,25 +27,31 @@ public class User {
      */
    
     @Id
-    @GeneratedValue (strategy =GenerationType.AUTO)
+    @GeneratedValue (strategy =GenerationType.IDENTITY)
     private Long id;
+     @Column
     private String name;
+      @Column
     private String lastName;
+       @Column
     private String mail;
     @Column(unique=true)
-    private String userName;
+    private String username;
+     @Column
+     @JsonIgnore
     private String password;
+      @Column
+      @JsonIgnore
     private String token;
     
-    public User (){
-        
+    public User(){        
     }
    public User(Long id, String name, String lastName, String mail, String userName, String token,String password) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.mail = mail;
-        this.userName = userName;
+        this.username = userName;
         this.password=password;
         this.token = token;
     }
@@ -109,14 +116,14 @@ public class User {
      * @return the userName
      */
     public String getUserName() {
-        return userName;
+        return username;
     }
 
     /**
      * @param userName the userName to set
      */
     public void setUserName(String userName) {
-        this.userName = userName;
+        this.username = userName;
     }
      public String getToken() {
         return token;

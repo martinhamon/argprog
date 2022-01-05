@@ -37,6 +37,8 @@ public class Job {
     @Column
     private Date end;
     
+    
+    
     public Job (){
         
     }

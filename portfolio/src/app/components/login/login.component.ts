@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthenticationService  } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,15 +11,11 @@ import { AuthService } from 'src/app/services/auth.service';
 
 export class LoginComponent implements OnInit {
  form : FormGroup;
-  constructor(private formBuilder :FormBuilder, private authService : AuthService , private rute : Router ) {
+  constructor(private formBuilder :FormBuilder, private authService : AuthenticationService  , private rute : Router ) {
     this.form = this.formBuilder.group({
-      email : ['',[Validators.required, Validators.email]],
+      userName : ['',[Validators.required, Validators.email]],
       password : ['', [Validators.required, Validators.minLength(4)]],
-      deviceInfo: this.formBuilder.group({
-        deviceid: ['12345'],
-        deviceType: ['2'],
-        notificationToken : ['112233']
-      })
+
 
     });
   }
@@ -28,7 +24,7 @@ export class LoginComponent implements OnInit {
   }
    get Email ()
    {
-      return this.form.get('email');
+      return this.form.get('userName');
    }
 
    get Password (){
@@ -38,7 +34,7 @@ export class LoginComponent implements OnInit {
 
    onLogin (event : Event){
      event.preventDefault
-     this.authService.login(this.form.value).subscribe(data =>{
+     this.authService.authenticate( this.form.get('userName')?.value,this.form.get('password')?.value).subscribe(data =>{
        console.log("Data:  " + JSON.stringify(data))
        this.rute.navigate(['/portfolio'])
      })

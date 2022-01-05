@@ -7,11 +7,14 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class JobsService {
-  private apiUrl : string ="http://localhost:5000/jobs"
-  constructor(private http: HttpClient) { }
+  private apiUrl : string ="http://localhost:8080/job/list"
+  constructor(private http: HttpClient) {
+
+   }
 
   getJobs() : Observable < Job[]> {
     //const tasks = of(TASKS);
+
     return this.http.get<Job[]>(this.apiUrl);
   }
 }

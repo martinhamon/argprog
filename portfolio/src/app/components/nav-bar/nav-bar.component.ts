@@ -1,27 +1,38 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AfterContentChecked, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AuthenticationService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css']
 })
-export class NavBarComponent implements OnInit {
-    @Input() isAuthenticated: boolean= true;
+export class NavBarComponent implements OnInit,AfterContentChecked {
+    @Input() isAuthenticated: boolean=false;
     @Output() LogOutClick = new EventEmitter();
     @Output() LogInClick = new EventEmitter();
-  constructor() { }
+
+  constructor(public _authService: AuthenticationService) {
+
+
+   }
+  ngAfterContentChecked(): void {
+   // console.log("11111111111111111111111111");
+    this.isAuthenticated = this._authService.isUserLoggedIn()
+  }
 
   ngOnInit(): void {
+
   }
   onLogOutClick( boolLog : boolean):void{
 
-    console.log("LogOut");
+  //  console.log("LogOut");
     this.LogOutClick.emit(boolLog);
+    this._authService.logOut()
   }
 
   onLogInClick(boolLog : boolean): void
   {
-    console.log("LogIn");
-    this.LogInClick.emit(boolLog);
+   // console.log("LogIn");
+    //this.LogInClick.emit(boolLog);
   }
 }

@@ -12,7 +12,7 @@ export class AppComponent {
   title = 'portfolio';
 
   onClickButtonNavBarLogOutLogIn(event : boolean){
-    console.log(event);
+  //  console.log(event);
   }
 
 }

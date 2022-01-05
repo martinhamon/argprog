@@ -11,10 +11,11 @@ export class BodyComponent implements OnInit {
   constructor(private jobsservice :JobsService) { }
 
   ngOnInit(): void {
-    this.jobsservice.getJobs().subscribe((jobs) => [
-      this.jobs= jobs
 
-    ]);
+    this.jobsservice.getJobs().subscribe(data => {
+      this.jobs = data;
+     // console.log(data);
+    });;
 
   }
 

@@ -23,7 +23,7 @@ import { ImageButtonComponent } from './components/image-button/image-button.com
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MhCardComponent } from './components/mh-card/mh-card.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import {HttpClient, HttpClientModule, HttpHandler} from '@angular/common/http';
+import {HttpClient, HttpClientModule, HttpHandler, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { EducationCardComponent } from './components/education-card/education-card.component';
 import { SkillsCardComponent } from './components/skills-card/skills-card.component';
 import { ProyectsCardComponent } from './components/proyects-card/proyects-card.component';
@@ -33,6 +33,7 @@ import { LoginComponent } from './components/login/login.component'
 import { RouterModule } from '@angular/router';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BasicAuthHtppInterceptorService } from './services/basic-auth-htpp-interceptor-service.service';
 
 
 @NgModule({
@@ -71,7 +72,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
 
   ],
-  providers: [],
+  providers: [{ provide:HTTP_INTERCEPTORS, useClass:BasicAuthHtppInterceptorService, multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,18 +4,18 @@
 <mat-card >
 <form [formGroup]="form" (ngSubmit)="onLogin($event)" class="login-main">
   <div class="mb-3">
-    <label for="email" class="form-label">Email </label>
+    <label for="userName" class="form-label">Nombre de usuario </label>
     <input
     [ngClass]="{'is-invalid': Email?.errors && Email?.touched, 'is-valid':!Email?.errors && Email?.touched}"
-    type="email" formControlName="email" class="form-control" id="email" aria-describedby="emailHelp">
+    type="text" formControlName="userName" class="form-control" id="userName" aria-describedby="emailHelp">
     <div *ngIf="Email?.errors && Email?.touched" class="text-danger">
       <p *ngIf="Email?.hasError('required')" >
 
-      Email requerido
+      Nombre de usuario requerido
       </p>
       <p *ngIf="Email?.hasError('email')" >
 
-       Email invalido
+      Credenciales invalidas
         </p>
     </div>
     <div id="emailHelp" class="form-text">Nunca compartiremos sus datos.</div>

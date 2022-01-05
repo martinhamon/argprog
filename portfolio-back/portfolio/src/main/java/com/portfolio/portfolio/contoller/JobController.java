@@ -19,8 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author MH
  */
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 @RestController
-@CrossOrigin
+
 public class JobController {
     
     @Autowired

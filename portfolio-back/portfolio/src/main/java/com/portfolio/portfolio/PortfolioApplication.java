@@ -10,6 +10,5 @@ public class PortfolioApplication {
 		SpringApplication.run(PortfolioApplication.class, args);
 	}
         
-       
-
+  
 }

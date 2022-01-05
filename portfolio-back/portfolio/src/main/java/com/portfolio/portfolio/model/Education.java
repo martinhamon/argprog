@@ -30,7 +30,7 @@ public class Education {
     private String title;
     @Column
     private String subTitle;
-    @Column
+    @Column (length = 2000)
     private String description;
     @Column
     private Date start;

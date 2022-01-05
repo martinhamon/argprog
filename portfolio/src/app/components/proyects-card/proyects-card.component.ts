@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 
@@ -8,6 +8,7 @@ import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./proyects-card.component.css']
 })
 export class ProyectsCardComponent implements OnInit {
+  @Input() prj:any
   iconEdit:IconDefinition =faPen
   iconDelete: IconDefinition =  faTrash
   constructor() { }

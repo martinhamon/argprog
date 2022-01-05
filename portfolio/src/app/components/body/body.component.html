@@ -8,7 +8,8 @@
 <mat-card>
   <mat-card-title>Formacion y cursos</mat-card-title>
 <app-education-card
-
+*ngFor="let edu of educations"
+    [edu]="edu"
     ></app-education-card>
 </mat-card>
 <mat-card>
@@ -21,7 +22,8 @@
   <mat-card-title>Proyectos </mat-card-title>
 
 <app-proyects-card
-
+*ngFor="let pro of projects"
+    [prj]="pro"
     ></app-proyects-card>
 </mat-card>
 

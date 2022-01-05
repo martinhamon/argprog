@@ -30,7 +30,7 @@ public class JobController {
     public List< Job> listJobs (){
       return  jobRepository.findAll();
     }
-    @RequestMapping(value = "/job/add", method = RequestMethod.GET)
+    @RequestMapping(value = "/job/add", method = RequestMethod.POST)
     public Job addJob (@RequestBody Job job){
       return  jobRepository.save(job);
     }

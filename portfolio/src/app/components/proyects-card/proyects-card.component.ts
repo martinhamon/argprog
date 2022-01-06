@@ -11,9 +11,17 @@ export class ProyectsCardComponent implements OnInit {
   @Input() prj:any
   iconEdit:IconDefinition =faPen
   iconDelete: IconDefinition =  faTrash
+  pry_title : string =""
+  pry_subTitle: string =""
+  pry_description: string =""
+  pry_url: string =""
   constructor() { }
 
   ngOnInit(): void {
+    this.pry_title = this.prj["title"]
+    this.pry_subTitle=this.prj["subtitle"]
+    this.pry_description=this.prj["description"]
+    this. pry_url=this.prj["url"]
   }
 
 }

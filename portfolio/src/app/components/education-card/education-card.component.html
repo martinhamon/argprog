@@ -6,26 +6,16 @@
       {{job.job_title}}
      </mat-card-subtitle-->
      <mat-card-title-group>
-      <img mat-card-sm-image  src="../../../assets/images/ulp.png" >
-      <mat-card-title>Tecnico desarrollador de software</mat-card-title>
-      <mat-card-subtitle>Tecnologia</mat-card-subtitle>
+      <img mat-card-sm-image  src="{{edu_logo}}" >
+      <mat-card-title>{{edu_title}}</mat-card-title>
+      <mat-card-subtitle>{{edu_sub_title}}</mat-card-subtitle>
 
     </mat-card-title-group>
      <mat-card-content>
-      Análisis, diseño y programación de soluciones informáticas aplicando las mejores prácticas.
-
- Participación de equipos de investigación y desarrollo.
-
- Desarrollo de aplicaciones integrales en diferentes tipos de equipamientos y tecnologías.
-
- Creación de bases de datos, entornos web y aplicaciones móviles sincronizadas.
-
- Identificación de problemas en entornos de desarrollo de software.
-
- Desempeño con sentido ético respecto de clientes, usuarios, colegas y la sociedad en su conjunto.
+      {{edu_description}}
       <br> <br>
-      Fecha ingreso: --/--/-- <br>
-      Fecha de egreso: --/--/--
+      Fecha ingreso: {{start | date:'dd-MM-yyyy'}}  <br>
+      Fecha de egreso:{{end | date:'dd-MM-yyyy'}}
      </mat-card-content>
     <mat-card-actions align="end">
       <app-image-button [icon]="iconEdit" class="btn-edit"></app-image-button>

@@ -9,9 +9,6 @@ import com.portfolio.portfolio.model.JwtRequest;
 import com.portfolio.portfolio.model.JwtResponse;
 import com.portfolio.portfolio.model.UserDto;
 import com.portfolio.portfolio.service.JwtUserDetailsService;
-import static org.hibernate.annotations.common.util.impl.LoggerFactory.logger;
-import static org.hibernate.internal.CoreLogging.logger;
-import static org.hibernate.internal.HEMLogging.logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -43,9 +40,9 @@ public class JwtAuthenticationController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
-System.out.println("aaaaaaaaaaaaaaaaaaaaaaa");
-		authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
 
+		authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
+                
 		final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
 
 		final String token = jwtTokenUtil.generateToken(userDetails);
@@ -60,7 +57,7 @@ System.out.println("aaaaaaaaaaaaaaaaaaaaaaa");
 
 	private void authenticate(String username, String password) throws Exception {
 		try {
-                    System.out.println("bbbbbbbbbbbbbbbb");
+                   
 			authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
 		
                 } catch (DisabledException e) {

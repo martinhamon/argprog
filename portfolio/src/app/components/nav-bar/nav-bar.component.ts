@@ -1,4 +1,5 @@
 import { AfterContentChecked, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router, RouterStateSnapshot } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/auth.service';
 
 @Component({
@@ -11,7 +12,8 @@ export class NavBarComponent implements OnInit,AfterContentChecked {
     @Output() LogOutClick = new EventEmitter();
     @Output() LogInClick = new EventEmitter();
 
-  constructor(public _authService: AuthenticationService) {
+  constructor(public _authService: AuthenticationService,private router: Router
+    ) {
 
 
    }
@@ -32,6 +34,8 @@ export class NavBarComponent implements OnInit,AfterContentChecked {
 
   onLogInClick(boolLog : boolean): void
   {
+
+    this.router.navigate(['/login']);
    // console.log("LogIn");
     //this.LogInClick.emit(boolLog);
   }

@@ -14,7 +14,9 @@
 
   </mat-card-content>
   <mat-card-actions>
-    <mat-card-actions align="end">
+    <mat-card-actions align="end"
+    *ngIf="logued"
+    >
       <app-image-button [icon]="iconEdit" class="btn-edit"></app-image-button>
       <app-image-button [icon]="iconDelete" class="btn-edit"></app-image-button>
      </mat-card-actions>

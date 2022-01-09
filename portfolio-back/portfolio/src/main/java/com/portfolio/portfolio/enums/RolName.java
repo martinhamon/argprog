@@ -8,7 +8,7 @@ package com.portfolio.portfolio.enums;
  *
  * @author MH
  */
-public enum  RolNombre {
+public enum  RolName {
     ROLE_ADMIN,
     ROLE_USER
 }

@@ -8,7 +8,9 @@
         <div >
           <img  id="info-img" src="../../../assets/images/mh.png" alt="">
           <!--app-image-button></app-image--->
-          <app-image-button></app-image-button>
+          <app-image-button
+          *ngIf="isLoguedIn()"
+          ></app-image-button>
           <div class="info-data">
 
               <h1>Martin Hamon</h1>

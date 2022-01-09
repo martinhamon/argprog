@@ -39,7 +39,7 @@ public class UserDto  implements UserDetails {
      
       public static UserDto build(User usuario){
         List<GrantedAuthority> authorities=
-                usuario.getRoles().stream().map(rol -> new SimpleGrantedAuthority(rol.getRolNombre().name())).collect(Collectors.toList());
+                usuario.getRoles().stream().map(rol -> new SimpleGrantedAuthority(rol.getRolName().name())).collect(Collectors.toList());
         return new UserDto( usuario.getUserName(), usuario.getPassword(),usuario.getName(),usuario.getLastName(),usuario.getMail(), authorities);
     }
      

@@ -11,6 +11,7 @@ import { EducationService } from 'src/app/services/education.service';
 })
 export class EducationCardComponent implements OnInit {
   @Input() edu: any;
+  @Input() logued : boolean=false;
   iconEdit:IconDefinition =faPen
   iconDelete: IconDefinition =  faTrash
   edu_title : string = ""
@@ -28,6 +29,7 @@ export class EducationCardComponent implements OnInit {
     this.edu_description = this.edu["description"]
     this.start= this.edu["start"]
     this.end = this.edu["end"]
+
   }
 
 }

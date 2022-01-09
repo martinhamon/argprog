@@ -3,6 +3,7 @@
 <app-mh-card
     *ngFor="let jobI of jobs"
     [job]="jobI"
+    [logued]="logued"
     ></app-mh-card>
 </mat-card>
 <mat-card>
@@ -10,12 +11,13 @@
 <app-education-card
 *ngFor="let edu of educations"
     [edu]="edu"
+    [logued]="logued"
     ></app-education-card>
 </mat-card>
 <mat-card>
   <mat-card-title>Hard & Soft Skills</mat-card-title>
 <app-skills-card
-
+[logued]="logued"
     ></app-skills-card>
 </mat-card>
 <mat-card>
@@ -24,6 +26,7 @@
 <app-proyects-card
 *ngFor="let pro of projects"
     [prj]="pro"
+    [logued]="logued"
     ></app-proyects-card>
 </mat-card>
 

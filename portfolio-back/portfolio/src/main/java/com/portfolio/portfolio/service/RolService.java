@@ -4,7 +4,7 @@
  */
 package com.portfolio.portfolio.service;
 
-import com.portfolio.portfolio.enums.RolNombre;
+import com.portfolio.portfolio.enums.RolName;
 import com.portfolio.portfolio.model.Rol;
 import com.portfolio.portfolio.repository.RolRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +18,12 @@ public class RolService {
     @Autowired
     RolRepository rolRepository;
 
-    public Optional<Rol> getByRolNombre(RolNombre rolNombre){
-        return rolRepository.findByRolNombre(rolNombre);
+    public Optional<Rol> getByRolName(RolName rolName){
+        return rolRepository.findByRolName(rolName);
     }
 
-    public boolean existsByRolNombre(RolNombre rolNombre){
-        return rolRepository.existsByRolNombre(rolNombre);
+    public boolean existsByRolName(RolName rolName){
+        return rolRepository.existsByRolName(rolName);
     }
 
     public void save(Rol rol){

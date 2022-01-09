@@ -9,6 +9,7 @@ import { faPen, faPenFancy, faTrash, IconDefinition } from '@fortawesome/free-so
 })
 export class MhCardComponent implements OnInit {
   @Input() job:any
+  @Input() logued : boolean=false;
   iconEdit:IconDefinition =faPen
   iconDelete: IconDefinition =  faTrash
   job_title : string = ""

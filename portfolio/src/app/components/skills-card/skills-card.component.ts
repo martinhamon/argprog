@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
@@ -10,6 +10,7 @@ import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./skills-card.component.css']
 })
 export class SkillsCardComponent implements OnInit {
+  @Input() logued : boolean=false;
   iconEdit:IconDefinition =faPen
   iconDelete: IconDefinition =  faTrash
   color: ThemePalette = "accent";

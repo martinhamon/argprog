@@ -9,6 +9,7 @@ import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 })
 export class ProyectsCardComponent implements OnInit {
   @Input() prj:any
+  @Input() logued : boolean=false;
   iconEdit:IconDefinition =faPen
   iconDelete: IconDefinition =  faTrash
   pry_title : string =""

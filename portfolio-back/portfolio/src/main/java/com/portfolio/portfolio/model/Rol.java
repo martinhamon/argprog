@@ -8,7 +8,7 @@ package com.portfolio.portfolio.model;
  *
  * @author MH
  */
-import com.portfolio.portfolio.enums.RolNombre;
+import com.portfolio.portfolio.enums.RolName;
 import com.sun.istack.NotNull;
 import javax.persistence.*;
 
@@ -21,13 +21,13 @@ public class Rol {
     @Enumerated(EnumType.STRING)
     @NotNull
     @Column(unique = true)
-    private RolNombre rolNombre;
+    private RolName rolName;
 
     public Rol() {
     }
 
-    public Rol(@NotNull RolNombre rolNombre) {
-        this.rolNombre = rolNombre;
+    public Rol(@NotNull RolName rolName) {
+        this.rolName = rolName;
     }
 
     public long getId() {
@@ -38,11 +38,11 @@ public class Rol {
         this.id = id;
     }
 
-    public RolNombre getRolNombre() {
-        return rolNombre;
+    public RolName getRolName() {
+        return rolName;
     }
 
-    public void setRolNombre(RolNombre rolNombre) {
-        this.rolNombre = rolNombre;
+    public void setRolName(RolName rolName) {
+        this.rolName = rolName;
     }
 }

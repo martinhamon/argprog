@@ -5,7 +5,7 @@
 package com.portfolio.portfolio.service;
 
 
-import com.portfolio.portfolio.enums.RolNombre;
+import com.portfolio.portfolio.enums.RolName;
 import com.portfolio.portfolio.model.Rol;
 import com.portfolio.portfolio.model.User;
 import com.portfolio.portfolio.model.UserDto;
@@ -50,7 +50,7 @@ public PasswordEncoder passwordEncoder()
 		if (user == null || !user.isActive()) {
 			throw new UsernameNotFoundException("User not found with username: " + username);
 		}
-           List<GrantedAuthority> authorities= user.getRoles().stream().map(rol -> new SimpleGrantedAuthority(rol.getRolNombre().name())).collect(Collectors.toList());
+           List<GrantedAuthority> authorities= user.getRoles().stream().map(rol -> new SimpleGrantedAuthority(rol.getRolName().name())).collect(Collectors.toList());
 		//return new org.springframework.security.core.userdetails.User(user.getUserName(), user.getPassword(),
               //  authorities);
                  return UserDto.build(user);
@@ -63,7 +63,7 @@ public PasswordEncoder passwordEncoder()
                 newUser.setName(user.getName());
                 newUser.setLastName(user.getLastName());
                 newUser.setMail(user.getMail());
-               Rol rol = rolService.getByRolNombre(RolNombre.ROLE_USER).get();
+               Rol rol = rolService.getByRolName(RolName.ROLE_USER).get();
         Set<Rol> roles = new HashSet<>();
         roles.add(rol);
         newUser.setRoles(roles);

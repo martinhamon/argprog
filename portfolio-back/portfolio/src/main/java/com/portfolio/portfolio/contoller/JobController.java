@@ -17,7 +17,6 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -39,15 +38,20 @@ public class JobController {
     private JobRepository jobRepository;
     @Autowired
     private JwtUserDetailsService userDetailService;
+    
+    
     @RequestMapping(value = "/job/list", method = RequestMethod.GET)
     public List< Job> listJobs (){
       return  jobRepository.findAll();
     }
+    
+    
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(value = "/job/add", method = RequestMethod.POST)
     public Job addJob (@RequestBody Job job){
       return  jobRepository.save(job);
     }
-    
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping(value = "/job/delete/{id}")
     public ResponseEntity<Long> deleteJob (@PathVariable Long id)   
     {

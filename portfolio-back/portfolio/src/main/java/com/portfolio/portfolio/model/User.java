@@ -5,13 +5,15 @@
 package com.portfolio.portfolio.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import javax.persistence.Column;
+import javax.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -20,6 +22,7 @@ import javax.persistence.Id;
 @Getter
 @Setter
 @Entity
+@Table(name = "users")
 public class User {
 
     /**
@@ -45,11 +48,18 @@ public class User {
     @Column
     @JsonIgnore
     private boolean active = false;
-     @Column
-    @JsonIgnore
-    private boolean admin = false;
-     
-     
+    
+     @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "users_rol", joinColumns = @JoinColumn(name = "users_id"), inverseJoinColumns = @JoinColumn(name = "rol_id"))
+    private Set<Rol> roles = new HashSet<>();
+
+  public Set<Rol> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Rol> roles) {
+        this.roles = roles;
+    }
       
  
     public User() {
@@ -174,19 +184,7 @@ public class User {
         this.active = active;
     }
 
-    /**
-     * @return the admin
-     */
-    public boolean isAdmin() {
-        return admin;
-    }
-
-    /**
-     * @param admin the admin to set
-     */
-    public void setAdmin(boolean admin) {
-        this.admin = admin;
-    }
+  
 
    
 

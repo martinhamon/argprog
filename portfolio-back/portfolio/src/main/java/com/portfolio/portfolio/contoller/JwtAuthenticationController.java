@@ -7,6 +7,7 @@ package com.portfolio.portfolio.contoller;
 import com.portfolio.portfolio.config.JwtTokenUtil;
 import com.portfolio.portfolio.model.JwtRequest;
 import com.portfolio.portfolio.model.JwtResponse;
+import com.portfolio.portfolio.model.User;
 import com.portfolio.portfolio.model.UserDto;
 import com.portfolio.portfolio.service.JwtUserDetailsService;
 

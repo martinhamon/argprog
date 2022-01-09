@@ -4,19 +4,48 @@
  */
 package com.portfolio.portfolio.model;
 
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 import javax.persistence.Column;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 /**
  *
  * @author MH
  */
-public class UserDto {
+public class UserDto  implements UserDetails {
     private String username;
     private String password;
      private String name;
       private boolean active = false;
     private String lastName;
+
+    public UserDto(String username, String password, String name, String lastName, String mail, Collection<? extends GrantedAuthority> authorities) {
+        this.username = username;
+        this.password = password;
+        this.name = name;
+        this.lastName = lastName;
+        this.mail = mail;
+        this.authorities = authorities;
+    }
     private String mail;
+    
+    
+     private Collection<? extends GrantedAuthority> authorities;
+    
+     
+      public static UserDto build(User usuario){
+        List<GrantedAuthority> authorities=
+                usuario.getRoles().stream().map(rol -> new SimpleGrantedAuthority(rol.getRolNombre().name())).collect(Collectors.toList());
+        return new UserDto( usuario.getUserName(), usuario.getPassword(),usuario.getName(),usuario.getLastName(),usuario.getMail(), authorities);
+    }
+     
+     
+     
+     
     public String getUsername() {
         return username;
     }
@@ -88,4 +117,29 @@ public class UserDto {
     public void setActive(boolean active) {
         this.active = active;
     }
+@Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return authorities;
+    }
+   
 }

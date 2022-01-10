@@ -18,7 +18,8 @@
       Fecha de egreso: {{end | date:'dd-MM-yyyy'}}
      </mat-card-content>
     <mat-card-actions align="end"
-    *ngIf="logued"
+    *ngIf="logued && adm"
+
     >
      <app-image-button [icon]="iconEdit" class="btn-edit"></app-image-button>
      <app-image-button [icon]="iconDelete" class="btn-edit"></app-image-button>

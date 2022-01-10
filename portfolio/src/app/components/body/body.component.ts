@@ -15,7 +15,8 @@ export class BodyComponent implements OnInit {
    jobs:Job [] = []
    projects : Project[]=[]
    educations : Education []=[]
-  logued :boolean = false ;
+  logued :boolean = false
+  adm : boolean = false
   constructor(private jobsservice :JobsService,
     private educationService: EducationService, private projectService: ProjectService,
     private auth : AuthenticationService
@@ -23,6 +24,8 @@ export class BodyComponent implements OnInit {
 
   ngOnInit(): void {
   this.logued= this.auth.isUserLoggedIn()
+  this.adm = this.auth.isAdmin()
+  console.log("datos de login sssssss  " + this.adm);
     this.jobsservice.getJobs().subscribe(
       data => {
       this.jobs = data

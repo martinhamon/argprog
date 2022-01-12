@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class JobsService {
-  private apiUrl : string ="http://localhost:8080/job/list"
+  private apiUrl : string ="http://localhost:8080"
   constructor(private http: HttpClient) {
 
    }
@@ -15,6 +15,10 @@ export class JobsService {
   getJobs() : Observable < Job[]> {
     //const tasks = of(TASKS);
 
-    return this.http.get<Job[]>(this.apiUrl);
+    return this.http.get<Job[]>(this.apiUrl+"/job/list");
+  }
+  deleteJob(job : Job) : Observable < Job>{
+    console.log(this.apiUrl+"/job/delete/"+job.id)
+    return this.http.delete<Job>(this.apiUrl+"/job/delete/"+job.id);
   }
 }

@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
    onLogin (event : Event){
      event.preventDefault
      this.authService.authenticate( this.form.get('userName')?.value,this.form.get('password')?.value).subscribe(data =>{
-       console.log("Data:  " + JSON.stringify(data))
+      // console.log("Data:  " + JSON.stringify(data))
        this.rute.navigate(['/portfolio'])
      })
    }

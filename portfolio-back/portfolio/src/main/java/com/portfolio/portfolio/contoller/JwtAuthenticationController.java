@@ -7,20 +7,16 @@ package com.portfolio.portfolio.contoller;
 import com.portfolio.portfolio.config.JwtTokenUtil;
 import com.portfolio.portfolio.model.JwtRequest;
 import com.portfolio.portfolio.model.JwtResponse;
-import com.portfolio.portfolio.model.User;
 import com.portfolio.portfolio.model.UserDto;
 import com.portfolio.portfolio.service.JwtUserDetailsService;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -52,7 +48,7 @@ public class JwtAuthenticationController {
 
 		final String token = jwtTokenUtil.generateToken(userDetails);
 
-		return ResponseEntity.ok(new JwtResponse(token));
+		return ResponseEntity.ok(new JwtResponse(token,userDetails.getAuthorities())); 
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)

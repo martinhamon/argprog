@@ -27,55 +27,26 @@ export class AuthenticationService  {
           sessionStorage.setItem("username", username);
           let tokenStr = "Bearer " + userData.token;
           sessionStorage.setItem("token", tokenStr);
-          //sessionStorage.setItem("isadm",  this.isAdmin ())
+          sessionStorage.setItem("roles",  JSON.stringify(userData.roles))
 
           return userData;
         })
       );
    }
 
-   public isAdmin() : boolean{
-    this.hasRole("ROLE_ADMIN")
-     return this.isadmin;
+   public  isAdmin() :boolean{
+
+
+
+      return sessionStorage.getItem("roles")?.indexOf("ROLE_ADMIN") != -1;
+
+
+
+
    }
 
 
-    async hasRole (role : String):Promise<boolean>{
-      let isadm =false;
-      let data = await  this.httpClient
-      .get<[Rol]>("http://localhost:8080/rol/info").toPromise()
 
-      if (data !=null)
-      data.forEach((element: Rol) => {
-        if (element.authority == "ROLE_ADMIN")
-        {
-        console.log("En hasRole:   " +  element.authority )
-
-        this.isadmin= true;
-        isadm=this.isadmin
-        }
-
-      })
-
-
-
-
-
-     /* let  a = this.httpClient
-      .get<any>("http://localhost:8080/rol/info");
-
-      a.forEach(element => {
-
-        if (element[0]["authority"].toString() === role)
-        {
-        isadm = true
-        console.log("En forrrrr:   " + isadm);
-        }
-      });
-
-      console.log("Es admin1?: 11  " +isadm);*/
-      return isadm;
-    }
    isUserLoggedIn() {
     let user = sessionStorage.getItem("username");
    // console.log(!(user === null));

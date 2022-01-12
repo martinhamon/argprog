@@ -21,8 +21,10 @@
     *ngIf="logued && adm"
 
     >
-     <app-image-button [icon]="iconEdit" class="btn-edit"></app-image-button>
-     <app-image-button [icon]="iconDelete" class="btn-edit"></app-image-button>
+     <app-image-button [icon]="iconEdit" class="btn-edit" (click)="onEdit()"></app-image-button>
+     <app-image-button [icon]="iconDelete" class="btn-edit"
+     (click)="onDelete(job_id)"
+     ></app-image-button>
     </mat-card-actions>
   </mat-card>
 

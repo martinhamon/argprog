@@ -25,7 +25,7 @@ export class BodyComponent implements OnInit {
   ngOnInit(): void {
   this.logued= this.auth.isUserLoggedIn()
   this.adm = this.auth.isAdmin()
-  console.log("datos de login sssssss  " + this.adm);
+
     this.jobsservice.getJobs().subscribe(
       data => {
       this.jobs = data
@@ -40,6 +40,14 @@ export class BodyComponent implements OnInit {
       this.educations=data
     });
 
+  }
+
+  jobDelete (job : Job){
+    console.log("evento emitido :     "+job.id);
+    this.jobsservice.deleteJob(job).subscribe(() =>
+    [
+      this.jobs = this.jobs.filter ((j) => j.id !== job.id)
+    ]);
   }
 
 }

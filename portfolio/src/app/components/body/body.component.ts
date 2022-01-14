@@ -6,6 +6,7 @@ import { Education } from 'src/app/EducationTemplate';
 import { EducationService } from 'src/app/services/education.service';
 import { ProjectService } from 'src/app/services/project.service';
 import { AuthenticationService } from 'src/app/services/auth.service';
+import { Observable, of } from 'rxjs';
 @Component({
   selector: 'app-body',
   templateUrl: './body.component.html',
@@ -13,6 +14,7 @@ import { AuthenticationService } from 'src/app/services/auth.service';
 })
 export class BodyComponent implements OnInit {
    jobs:Job [] = []
+   tjobs:Job [] = []
    projects : Project[]=[]
    educations : Education []=[]
   logued :boolean = false
@@ -43,11 +45,43 @@ export class BodyComponent implements OnInit {
   }
 
   jobDelete (job : Job){
-    console.log("evento emitido :     "+job.id);
+   // console.log("evento emitido :     "+job.id);
     this.jobsservice.deleteJob(job).subscribe(() =>
     [
       this.jobs = this.jobs.filter ((j) => j.id !== job.id)
     ]);
   }
+
+  jobEdit(job : Job) {
+        job.subTitle="4546...."
+        let index = 0;
+        let jbn : Job = job;
+      this.jobsservice.editJob(job).subscribe (data=>{
+        jbn=data
+
+
+      this.jobs =this.jobs.map( (jb, index, array) => {
+
+          if (jb.id === job.id)
+          {
+            //console.log("evento jobEdit :     "+job.id);
+            jbn.logo=jb.logo
+            jbn.title=jb.title
+            jbn.subTitle=jb.subTitle
+            jbn.tasks=jb.tasks
+            jbn.start=jb.start
+            jbn.end=jb.end
+            return jbn
+          }
+          else
+
+          return jb
+
+      }
+      )});
+
+
+      }
+
 
 }

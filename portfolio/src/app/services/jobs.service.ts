@@ -21,4 +21,8 @@ export class JobsService {
     console.log(this.apiUrl+"/job/delete/"+job.id)
     return this.http.delete<Job>(this.apiUrl+"/job/delete/"+job.id);
   }
+
+  editJob(job : Job): Observable <Job>{
+    return this.http.post<Job>(this.apiUrl+"/job/add",job);
+  }
 }

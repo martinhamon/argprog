@@ -13,12 +13,13 @@ export class MhCardComponent implements OnInit {
   @Input() logued : boolean=false;
   @Input () adm : boolean = false
   @Output() emitDelete : EventEmitter <string>= new EventEmitter();
+  @Output() emitEdit : EventEmitter <string>= new EventEmitter();
   iconEdit:IconDefinition =faPen
   iconDelete: IconDefinition =  faTrash
-  job_title : string = ""
-  job_sub_title: string = ""
-  job_logo: string = ""
-  job_tasks: string = ""
+  title : string = ""
+  subTitle: string = ""
+  logo: string = ""
+  tasks: string = ""
   job_id: string=""
   start: string = ""
   end: string = ""
@@ -28,24 +29,25 @@ export class MhCardComponent implements OnInit {
   ngOnInit(): void {
 
 
-    this.job_logo=this.job["logo"]
-    this.job_title =this.job["title"]
-    this.job_sub_title=this.job["job_sub_title"]
-    this.job_tasks=this.job["tasks"]
+    this.logo=this.job["logo"]
+    this.title =this.job["title"]
+    this.subTitle=this.job["subTitle"]
+    this.tasks=this.job["tasks"]
     this.start=this.job["start"]
     this.end=this.job["end"]
     this.job_id = this.job["id"]
   }
 
-onDelete (j : string){
+onDelete (j : string) : void{
 
 this.emitDelete.emit(this.job_id);
 
 }
 
 
-onEdit(){
+onEdit() : void {
   console.log("Editando")
+  this.emitEdit.emit()
 }
 
 }

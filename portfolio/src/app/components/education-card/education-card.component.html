@@ -20,8 +20,8 @@
     <mat-card-actions align="end"
     *ngIf="logued"
     >
-      <app-image-button [icon]="iconEdit" class="btn-edit"></app-image-button>
-      <app-image-button [icon]="iconDelete" class="btn-edit"></app-image-button>
+      <app-image-button [icon]="iconEdit" (click)="onEdit()" class="btn-edit"></app-image-button>
+      <app-image-button [icon]="iconDelete" (click)="onDelete()" class="btn-edit"></app-image-button>
     </mat-card-actions>
   </mat-card>
 

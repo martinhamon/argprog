@@ -53,7 +53,7 @@ export class BodyComponent implements OnInit {
   }
 
   jobEdit(job : Job) {
-        job.subTitle="4546...."
+        job.subTitle="78...."
         let index = 0;
         let jbn : Job = job;
       this.jobsservice.editJob(job).subscribe (data=>{
@@ -83,5 +83,88 @@ export class BodyComponent implements OnInit {
 
       }
 
+
+
+      projectDelete(pro: Project){
+        this.projectService.projectDelete(pro).subscribe(() =>
+        [
+          this.projects = this.projects.filter ((j) => j.id !== pro.id)
+        ]);
+      }
+
+
+      projectEdit (pro: Project){
+
+        pro.subTitle="1...."
+        let index = 0;
+        let pron : Project = pro;
+      this.projectService.editAddProject(pro).subscribe (data=>{
+        pron=data
+
+
+      this.projects =this.projects.map( (jb, index, array) => {
+
+          if (jb.id === pro.id)
+          {
+            //console.log("evento jobEdit :     "+job.id);
+            pron.logo=jb.logo
+            pron.title=jb.title
+            pron.subTitle=jb.subTitle
+            pron.description=jb.description
+            pron.url=jb.url
+
+            return pron
+          }
+          else
+
+          return jb
+
+      }
+      )});
+
+
+      }
+
+
+      educationDelete (edu : Education){
+        this.educationService.deleteEducation(edu).subscribe(() =>
+        [
+          this.educations = this.educations.filter ((j) => j.id !== edu.id)
+        ]);
+      }
+
+
+      educationEdit (edu : Education){
+
+        edu.subTitle="78...."
+        let index = 0;
+        let edun : Education = edu;
+      this.educationService.ediatAddEducation(edu).subscribe (data=>{
+        edun=data
+
+
+      this.educations =this.educations.map( (jb, index, array) => {
+
+          if (jb.id === edu.id)
+          {
+            //console.log("evento jobEdit :     "+job.id);
+            edun.logo=jb.logo
+            edun.title=jb.title
+            edun.subTitle=jb.subTitle
+            edun.description=jb.description
+            edun.start=jb.start
+            edun.end=jb.end
+
+            return edun
+          }
+          else
+
+          return jb
+
+      }
+      )});
+
+
+      }
 
 }

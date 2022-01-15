@@ -39,4 +39,8 @@ export class NavBarComponent implements OnInit,AfterContentChecked {
    // console.log("LogIn");
     //this.LogInClick.emit(boolLog);
   }
+  redirecTo(url : string)
+  {
+      window.location.href=url
+  }
 }

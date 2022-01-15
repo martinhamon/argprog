@@ -71,8 +71,7 @@ public class JwtAuthenticationController {
         
         @RequestMapping (value = "/rol/info", method = RequestMethod.GET)
         public List<?> userRoles ()
-        {
-           
+        {        
             
             return userDetailsService.getRoles();
         }

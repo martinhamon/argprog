@@ -8,7 +8,7 @@ import { Education } from '../EducationTemplate';
 })
 export class EducationService {
 
-  private apiUrl : string ="http://localhost:8080/education/list"
+  private apiUrl : string ="http://localhost:8080/education/"
   constructor(private http: HttpClient) {
 
    }
@@ -16,6 +16,13 @@ export class EducationService {
   getEducation() : Observable < Education[]> {
     //const tasks = of(TASKS);
 
-    return this.http.get<Education[]>(this.apiUrl);
+    return this.http.get<Education[]>(this.apiUrl+"list");
+  }
+  deleteEducation(edu : Education) : Observable<Education>{
+    return this.http.delete<Education>(this.apiUrl+"delete/"+edu.id)
+  }
+
+  ediatAddEducation (edu : Education): Observable<Education>{
+    return this.http.post<Education>(this.apiUrl+"add",edu)
   }
 }

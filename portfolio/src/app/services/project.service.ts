@@ -8,14 +8,24 @@ import { Project } from '../ProjectTemplate';
 })
 export class ProjectService {
 
-  private apiUrl : string ="http://localhost:8080/project/list"
+  private apiUrl : string ="http://localhost:8080/project/"
   constructor(private http: HttpClient) {
 
    }
 
   getProjects() : Observable < Project[]> {
-    //const tasks = of(TASKS);
 
-    return this.http.get<Project[]>(this.apiUrl);
+
+    return this.http.get<Project[]>(this.apiUrl+"list");
+  }
+
+  projectDelete(pro : Project) : Observable<Project>{
+
+
+    return this.http.delete<Project>(this.apiUrl+"delete/"+pro.id)
+  }
+  editAddProject (pro : Project) : Observable<Project>
+  {
+    return this.http.post<Project>(this.apiUrl+"add",pro)
   }
 }

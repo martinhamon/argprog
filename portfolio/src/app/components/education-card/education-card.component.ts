@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Education } from 'src/app/EducationTemplate';
@@ -12,6 +12,8 @@ import { EducationService } from 'src/app/services/education.service';
 export class EducationCardComponent implements OnInit {
   @Input() edu: any;
   @Input() logued : boolean=false;
+  @Output() emitDelete : EventEmitter <string>= new EventEmitter();
+  @Output() emitEdit : EventEmitter <string>= new EventEmitter();
   iconEdit:IconDefinition =faPen
   iconDelete: IconDefinition =  faTrash
   edu_title : string = ""
@@ -30,6 +32,14 @@ export class EducationCardComponent implements OnInit {
     this.start= this.edu["start"]
     this.end = this.edu["end"]
 
+  }
+
+  onDelete(){
+    this.emitDelete.emit()
+  }
+
+  onEdit(){
+    this.emitEdit.emit()
   }
 
 }

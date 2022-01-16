@@ -23,7 +23,7 @@ export class AuthenticationService  {
     return this.httpClient
       .post<any>("http://localhost:8080/login", { username, password })
       .pipe(
-        map(userData => {
+        map((userData: { token: string; roles: any; }) => {
           sessionStorage.setItem("username", username);
           let tokenStr = "Bearer " + userData.token;
           sessionStorage.setItem("token", tokenStr);

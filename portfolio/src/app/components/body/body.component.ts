@@ -6,7 +6,8 @@ import { Education } from 'src/app/EducationTemplate';
 import { EducationService } from 'src/app/services/education.service';
 import { ProjectService } from 'src/app/services/project.service';
 import { AuthenticationService } from 'src/app/services/auth.service';
-import { Observable, of } from 'rxjs';
+import { Observable,of } from 'rxjs';
+
 @Component({
   selector: 'app-body',
   templateUrl: './body.component.html',
@@ -29,16 +30,16 @@ export class BodyComponent implements OnInit {
   this.adm = this.auth.isAdmin()
 
     this.jobsservice.getJobs().subscribe(
-      data => {
+      (      data: Job[]) => {
       this.jobs = data
 
      // console.log(data);
     });
     this.projectService.getProjects().subscribe(
-      data => {
+      (      data: Project[]) => {
         this.projects=data
     });
-    this.educationService.getEducation().subscribe(data => {
+    this.educationService.getEducation().subscribe((data: Education[]) => {
       this.educations=data
     });
 
@@ -56,7 +57,7 @@ export class BodyComponent implements OnInit {
         job.subTitle="78...."
         let index = 0;
         let jbn : Job = job;
-      this.jobsservice.editJob(job).subscribe (data=>{
+      this.jobsservice.editJob(job).subscribe ((data: Job)=>{
         jbn=data
 
 
@@ -98,7 +99,7 @@ export class BodyComponent implements OnInit {
         pro.subTitle="1...."
         let index = 0;
         let pron : Project = pro;
-      this.projectService.editAddProject(pro).subscribe (data=>{
+      this.projectService.editAddProject(pro).subscribe ((data: Project)=>{
         pron=data
 
 
@@ -139,7 +140,7 @@ export class BodyComponent implements OnInit {
         edu.subTitle="78...."
         let index = 0;
         let edun : Education = edu;
-      this.educationService.ediatAddEducation(edu).subscribe (data=>{
+      this.educationService.ediatAddEducation(edu).subscribe ((data: Education)=>{
         edun=data
 
 
@@ -164,6 +165,10 @@ export class BodyComponent implements OnInit {
       }
       )});
 
+
+      }
+
+      openDialog(){
 
       }
 

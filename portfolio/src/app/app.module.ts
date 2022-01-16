@@ -35,6 +35,7 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BasicAuthHtppInterceptorService } from './services/basic-auth-htpp-interceptor-service.service';
 
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { BasicAuthHtppInterceptorService } from './services/basic-auth-htpp-inte
     SkillsCardComponent,
     ProyectsCardComponent,
     LoginComponent,
-    PortfolioComponent
+    PortfolioComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -69,7 +71,8 @@ import { BasicAuthHtppInterceptorService } from './services/basic-auth-htpp-inte
     FlexLayoutModule,
     MatFormFieldModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatInputModule
 
   ],
   providers: [{ provide:HTTP_INTERCEPTORS, useClass:BasicAuthHtppInterceptorService, multi:true}],

@@ -1,6 +1,6 @@
 <mat-card>
   <mat-card-title>Esperiencia laboral</mat-card-title>
-  <button *ngIf="adm && logued" mat-raised-button (click)="abrirDialogo()">Agregar trabajo</button>
+
 <app-mh-card
     *ngFor="let jobI of jobs"
     [job]="jobI"
@@ -12,6 +12,7 @@
 </mat-card>
 <mat-card>
   <mat-card-title>Formacion y cursos</mat-card-title>
+
 <app-education-card
 *ngFor="let edu of educations"
     [edu]="edu"
@@ -22,6 +23,7 @@
 </mat-card>
 <mat-card>
   <mat-card-title>Hard & Soft Skills</mat-card-title>
+
 <app-skills-card
 [logued]="logued"
     ></app-skills-card>

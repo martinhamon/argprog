@@ -7,8 +7,9 @@ import { EducationService } from 'src/app/services/education.service';
 import { ProjectService } from 'src/app/services/project.service';
 import { AuthenticationService } from 'src/app/services/auth.service';
 import { Observable,of } from 'rxjs';
-import { DialogJobComponent } from '../dialog-job/dialog-job.component';
+import { DialogComponent } from '../dialogc/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Skill } from 'src/app/SkillTemplate';
 @Component({
   selector: 'app-body',
   templateUrl: './body.component.html',
@@ -172,9 +173,9 @@ export class BodyComponent implements OnInit {
       openDialog(){
 
       }
-      abrirDialogo() {
-        const dialogo1 = this.dialog.open(DialogJobComponent, {
-         // data: job
+      abrirDialogo(addType : string) {
+        const dialogo1 = this.dialog.open(DialogComponent, {
+         data: addType
         });
         dialogo1.afterClosed().subscribe(art => {
           if (art != undefined)

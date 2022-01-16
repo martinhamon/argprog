@@ -36,7 +36,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BasicAuthHtppInterceptorService } from './services/basic-auth-htpp-interceptor-service.service';
 
 import { MatInputModule } from '@angular/material/input';
-import { DialogJobComponent } from './components/dialog-job/dialog-job.component';
+import { DialogComponent } from './components/dialogc/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   declarations: [
@@ -52,7 +52,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     ProyectsCardComponent,
     LoginComponent,
     PortfolioComponent,
-    DialogJobComponent,
+    DialogComponent,
 
   ],
   imports: [

@@ -9,7 +9,7 @@
           <img  id="info-img" src="../../../assets/images/mh.png" alt="">
           <!--app-image-button></app-image--->
           <app-image-button
-          *ngIf="isLoguedIn()"
+          *ngIf="adm && logued"
           ></app-image-button>
           <div class="info-data">
 
@@ -38,10 +38,11 @@
 
             </div>
       </div>
-        <mat-card class="no-mat">
-          <button mat-raised-button >Tengo interes en</button>
-            <button mat-stroked-button >Añadir seccion</button>
-            <button mat-stroked-button >Mas</button>
+        <mat-card *ngIf="adm && logued" class="no-mat">
+          <button mat-raised-button (click)="abrirDialogo('job')" >Añadir trabajo</button>
+            <button mat-stroked-button  (click)="abrirDialogo('education')">Añadir educacion</button>
+            <button mat-stroked-button (click)="abrirDialogo('skills')" >Añadir conocimiento</button>
+            <button mat-stroked-button (click)="abrirDialogo('project')" >Añadir proyecto</button>
         </mat-card>
 
 

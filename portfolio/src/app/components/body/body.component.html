@@ -1,6 +1,6 @@
 <mat-card>
   <mat-card-title>Esperiencia laboral</mat-card-title>
-  <button mat-raised-button (click)="abrirDialogo()">Agregar artículo</button>
+  <button *ngIf="adm && logued" mat-raised-button (click)="abrirDialogo()">Agregar trabajo</button>
 <app-mh-card
     *ngFor="let jobI of jobs"
     [job]="jobI"

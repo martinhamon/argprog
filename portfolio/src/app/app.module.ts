@@ -36,7 +36,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BasicAuthHtppInterceptorService } from './services/basic-auth-htpp-interceptor-service.service';
 
 import { MatInputModule } from '@angular/material/input';
-
+import { DialogJobComponent } from './components/dialog-job/dialog-job.component';
+import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +52,7 @@ import { MatInputModule } from '@angular/material/input';
     ProyectsCardComponent,
     LoginComponent,
     PortfolioComponent,
+    DialogJobComponent,
 
   ],
   imports: [
@@ -72,7 +74,8 @@ import { MatInputModule } from '@angular/material/input';
     MatFormFieldModule,
     RouterModule,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    MatDialogModule
 
   ],
   providers: [{ provide:HTTP_INTERCEPTORS, useClass:BasicAuthHtppInterceptorService, multi:true}],

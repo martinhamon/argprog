@@ -1,5 +1,93 @@
-<div>
-  <h1 mat-dialog-title>Informacion a agregar</h1>
+<div *ngIf="isJob()">
+  <h1 mat-dialog-title>Ingresar trabajo</h1>
+  <div mat-dialog-content>
+      <div style="display: flex;flex-direction: column; margin:1rem auto; max-width: 600px; padding: 1rem;">
+
+          <mat-form-field>
+              <input matInput  type="number" placeholder="Ingrese código">
+          </mat-form-field>
+
+          <mat-form-field>
+              <input matInput [(ngModel)]="job.logo" type="text" placeholder="URL del logo">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput [(ngModel)]="job.title" type="text" placeholder="Titulo">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput [(ngModel)]="job.subTitle" type="text" placeholder="Subtitulo">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput [(ngModel)]="job.tasks" type="text" placeholder="Descripcion del trabajo">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [(ngModel)]="job.start" type="date" placeholder="Fecha de inicio">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="job.end" type="date" placeholder="Fecha de fin">
+</mat-form-field>
+
+
+
+      </div>
+  </div>
+  <div mat-dialog-actions>
+      <button mat-button (click)="cancelar()">Cancelar</button>
+      <button mat-button [mat-dialog-close]="data" (click)="onClose()" cdkFocusInitial>Confirmar</button>
+  </div>
+</div>
+
+<div *ngIf="isEducation()">
+  <h1 mat-dialog-title>Ingresar formacion</h1>
+  <div mat-dialog-content>
+      <div style="display: flex;flex-direction: column; margin:1rem auto; max-width: 600px; padding: 1rem;">
+
+          <mat-form-field>
+              <input matInput  type="number" placeholder="Ingrese código">
+          </mat-form-field>
+
+          <mat-form-field>
+              <input matInput  type="text" placeholder="Ingrese descripción">
+          </mat-form-field>
+
+          <mat-form-field>
+              <input matInput  type="number" placeholder="Ingrese precio">
+          </mat-form-field>
+
+      </div>
+  </div>
+  <div mat-dialog-actions>
+      <button mat-button (click)="cancelar()">Cancelar</button>
+      <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Confirmar</button>
+  </div>
+</div>
+
+<!--div *ngIf="isSkill()">
+  <h1 mat-dialog-title>Ingresar aptitud</h1>
+  <div mat-dialog-content>
+      <div style="display: flex;flex-direction: column; margin:1rem auto; max-width: 600px; padding: 1rem;">
+
+          <mat-form-field>
+              <input matInput  type="number" placeholder="Ingrese código">
+          </mat-form-field>
+
+          <mat-form-field>
+              <input matInput  type="text" placeholder="Ingrese descripción">
+          </mat-form-field>
+
+          <mat-form-field>
+              <input matInput  type="number" placeholder="Ingrese precio">
+          </mat-form-field>
+
+      </div>
+  </div>
+  <div mat-dialog-actions>
+      <button mat-button (click)="cancelar()">Cancelar</button>
+      <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Confirmar</button>
+  </div>
+</div-->
+
+<div *ngIf="isProject()">
+  <h1 mat-dialog-title>Ingresar proyecto</h1>
   <div mat-dialog-content>
       <div style="display: flex;flex-direction: column; margin:1rem auto; max-width: 600px; padding: 1rem;">
 

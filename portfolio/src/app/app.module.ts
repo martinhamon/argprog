@@ -28,7 +28,7 @@ import { EducationCardComponent } from './components/education-card/education-ca
 import { SkillsCardComponent } from './components/skills-card/skills-card.component';
 import { ProyectsCardComponent } from './components/proyects-card/proyects-card.component';
 import { LoginComponent } from './components/login/login.component'
-
+import { FormsModule } from '@angular/forms';
 
 import { RouterModule } from '@angular/router';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
@@ -75,7 +75,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     RouterModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule
 
   ],
   providers: [{ provide:HTTP_INTERCEPTORS, useClass:BasicAuthHtppInterceptorService, multi:true}],

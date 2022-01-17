@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AuthenticationService } from 'src/app/services/auth.service';
+import { JobsService } from 'src/app/services/jobs.service';
 import { DialogComponent } from '../dialogc/dialog.component';
+import { Job } from 'src/app/jobsTemplate';
+import { Education } from 'src/app/EducationTemplate';
+import { Project } from 'src/app/ProjectTemplate';
 
 @Component({
   selector: 'app-header',
@@ -23,11 +27,24 @@ export class HeaderComponent implements OnInit {
    return this.auth.isUserLoggedIn()
   }
   abrirDialogo(addType : string) {
-    const dialogo1 = this.dialog.open(DialogComponent, {
-     data: addType
+    let j : Job = new Job()
+    let e : Education =  new Education()
+    let p : Project = new Project()
+    let obj = undefined
+
+    if (addType==="job")
+        obj=j
+    else if (addType==="education")
+        obj=e
+        else if (addType==="project")
+        obj=p
+
+
+    const dialogAdd = this.dialog.open(DialogComponent, {
+     data: obj
     });
-    dialogo1.afterClosed().subscribe(art => {
-      if (art != undefined)
+   dialogAdd.afterClosed().subscribe(obj => {
+      if (obj != undefined)
        console.log("sdfsdf")
     });
   }

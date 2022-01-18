@@ -1,68 +1,68 @@
 export class Job{
-   private _id: number
-  public get id(): number {
-    return this._id
+   public id: number
+  public get getId(): number {
+    return this.id
   }
-  public set id(value: number) {
-    this._id = value
+  public set setId(value: number) {
+    this.id = value
   }
-   private _logo: String
-  public get logo(): String {
-    return this._logo
+  public logo: String
+  public get getLogo(): String {
+    return this.logo
   }
-  public set logo(value: String) {
-    this._logo = value
+  public set setLogo(value: String) {
+    this.logo = value
   }
-   private _title: String
-  public get title(): String {
-    return this._title
+  public title: String
+  public get getTitle(): String {
+    return this.title
   }
-  public set title(value: String) {
-    this._title = value
+  public set setTtitle(value: String) {
+    this.title = value
   }
-   private _subTitle: String
-  public get subTitle(): String {
-    return this._subTitle
+  public subTitle: String
+  public get getSubTitle(): String {
+    return this.subTitle
   }
-  public set subTitle(value: String) {
-    this._subTitle = value
+  public set setSubTitle(value: String) {
+    this.subTitle = value
   }
-   private _tasks: String
-  public get tasks(): String {
-    return this._tasks
+  public tasks: String
+  public get getTasks(): String {
+    return this.tasks
   }
-  public set tasks(value: String) {
-    this._tasks = value
+  public set setTasks(value: String) {
+    this.tasks = value
   }
-   private _start: String
-  public get start(): String {
-    return this._start
+  public start: String
+  public get getStart(): String {
+    return this.start
   }
-  public set start(value: String) {
-    this._start = value
+  public set setStart(value: String) {
+    this.start = value
   }
-   private _end: String
+  public end: String
 
 
 
-  public get end(): String {
-    return this._end
+  public get getEnd(): String {
+    return this.end
   }
-  public set end(value: String) {
-    this._end = value
+  public set setEnd(value: String) {
+    this.end = value
   }
 
 
 
 
    constructor  (){
-        this._id=0
-        this._logo=""
-        this._title=""
-        this._subTitle=""
-        this._tasks=""
-        this._start=""
-        this._end=""
+        this.id=0
+        this.logo=""
+        this.title=""
+        this.subTitle=""
+        this.tasks=""
+        this.start=""
+        this.end=""
    }
 
 

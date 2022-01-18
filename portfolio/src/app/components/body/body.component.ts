@@ -6,10 +6,11 @@ import { Education } from 'src/app/EducationTemplate';
 import { EducationService } from 'src/app/services/education.service';
 import { ProjectService } from 'src/app/services/project.service';
 import { AuthenticationService } from 'src/app/services/auth.service';
-import { Observable,of } from 'rxjs';
+import { Observable,of, Subscription } from 'rxjs';
 import { DialogComponent } from '../dialogc/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Skill } from 'src/app/SkillTemplate';
+import { ComunicationService } from 'src/app/services/comunication-service';
 @Component({
   selector: 'app-body',
   templateUrl: './body.component.html',
@@ -18,16 +19,29 @@ import { Skill } from 'src/app/SkillTemplate';
 export class BodyComponent implements OnInit {
    jobs:Job [] = []
    tjobs:Job [] = []
+
    projects : Project[]=[]
    educations : Education []=[]
   logued :boolean = false
   adm : boolean = false
+
   constructor(private jobsservice :JobsService,
     private educationService: EducationService, private projectService: ProjectService,
-    private auth : AuthenticationService, public dialog: MatDialog
+    private auth : AuthenticationService, public dialog: MatDialog, private comuicationService : ComunicationService
     ) { }
+    ngOnDestroy() {
 
+    }
   ngOnInit(): void {
+ //Suscribirse al servicio
+ this.comuicationService.sendMessageObservable.subscribe(response =>{
+   if (response instanceof Job)
+   {
+
+    this.jobAdd(response)
+       console.log(response);
+    }
+})
   this.logued= this.auth.isUserLoggedIn()
   this.adm = this.auth.isAdmin()
 
@@ -51,12 +65,29 @@ export class BodyComponent implements OnInit {
    // console.log("evento emitido :     "+job.id);
     this.jobsservice.deleteJob(job).subscribe(() =>
     [
-      this.jobs = this.jobs.filter ((j) => j.id !== job.id)
+      this.jobs = this.jobs.filter ((j) => j.getId !== job.getId)
     ]);
   }
 
+  jobAdd(job : Job) {
+
+    let index = 0;
+    job.setId=0
+    let jbn : Job = job;
+    this.jobsservice.editJob(job).subscribe ((data: Job)=>{
+    jbn=data
+
+
+  this.jobs=this.jobs.concat([job])
+
+
+  })
+}
+
+
+
   jobEdit(job : Job) {
-        job.subTitle="78...."
+        job.setSubTitle="78...."
         let index = 0;
         let jbn : Job = job;
       this.jobsservice.editJob(job).subscribe ((data: Job)=>{
@@ -65,16 +96,16 @@ export class BodyComponent implements OnInit {
 
       this.jobs =this.jobs.map( (jb, index, array) => {
 
-          if (jb.id === job.id)
-          {
-            //console.log("evento jobEdit :     "+job.id);
-            jbn.logo=jb.logo
-            jbn.title=jb.title
-            jbn.subTitle=jb.subTitle
-            jbn.tasks=jb.tasks
-            jbn.start=jb.start
-            jbn.end=jb.end
-            return jbn
+        if (jb.getId === job.getId)
+        {
+          //console.log("evento jobEdit :     "+job.id);
+          jbn.setLogo=jb.getLogo
+          jbn.setTtitle=jb.getTitle
+          jbn.setSubTitle=jb.getSubTitle
+          jbn.setTasks=jb.getTasks
+          jbn.setStart=jb.getStart
+          jbn.setEnd=jb.getEnd
+          return jbn
           }
           else
 
@@ -173,15 +204,7 @@ export class BodyComponent implements OnInit {
       openDialog(){
 
       }
-      abrirDialogo(addType : string) {
-        const dialogo1 = this.dialog.open(DialogComponent, {
-         data: addType
-        });
-        dialogo1.afterClosed().subscribe(art => {
-          if (art != undefined)
-           console.log("sdfsdf")
-        });
-      }
+
 
 
 }

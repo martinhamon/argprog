@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AuthenticationService } from 'src/app/services/auth.service';
 import { JobsService } from 'src/app/services/jobs.service';
@@ -7,6 +7,8 @@ import { Job } from 'src/app/jobsTemplate';
 import { Education } from 'src/app/EducationTemplate';
 import { Project } from 'src/app/ProjectTemplate';
 
+import { EventEmitter } from '@angular/core';
+import { ComunicationService, } from 'src/app/services/comunication-service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -15,11 +17,15 @@ import { Project } from 'src/app/ProjectTemplate';
 export class HeaderComponent implements OnInit {
   logued :boolean = false
   adm : boolean = false
-  constructor(private auth : AuthenticationService, public dialog: MatDialog) { }
+  @Output() emitJobAdd : EventEmitter <any> = new EventEmitter()
+  constructor(private auth : AuthenticationService, public dialog: MatDialog
+    , private jobService : JobsService, private comuicationService : ComunicationService
+    ) { }
 
   ngOnInit(): void {
     this.logued= this.auth.isUserLoggedIn()
   this.adm = this.auth.isAdmin()
+
   }
 
   isLoguedIn():boolean
@@ -45,6 +51,16 @@ export class HeaderComponent implements OnInit {
     });
    dialogAdd.afterClosed().subscribe(obj => {
       if (obj != undefined)
+      {
+        if (obj instanceof  Job){
+//Llmar al servicio encargado de los mensajes
+           // this.emitJobAdd.emit(obj)
+      this.comuicationService.sendMessage(obj)
+
+        }
+
+
+      }
        console.log("sdfsdf")
     });
   }

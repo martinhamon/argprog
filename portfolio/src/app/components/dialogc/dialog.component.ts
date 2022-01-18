@@ -1,8 +1,9 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, Output } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { Education } from 'src/app/EducationTemplate';
 import { Job } from 'src/app/jobsTemplate';
 import { Project } from 'src/app/ProjectTemplate';
+import { EventEmitter } from '@angular/core';
 @Component({
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',
@@ -10,6 +11,7 @@ import { Project } from 'src/app/ProjectTemplate';
 })
 export class DialogComponent implements OnInit {
  job :Job = new Job()
+ @Output() addData : EventEmitter<Job>= new EventEmitter()
   constructor(public dialogRef: MatDialogRef<DialogComponent>,
     @ Inject(MAT_DIALOG_DATA) public data: any) { }
 
@@ -43,7 +45,5 @@ export class DialogComponent implements OnInit {
     return this.data instanceof  Project;
   }
 
-  onClose(){
 
-  }
 }

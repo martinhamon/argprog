@@ -18,8 +18,8 @@ export class JobsService {
     return this.http.get<Job[]>(this.apiUrl+"/job/list");
   }
   deleteJob(job : Job) : Observable < Job>{
-    console.log(this.apiUrl+"/job/delete/"+job.getId)
-    return this.http.delete<Job>(this.apiUrl+"/job/delete/"+job.getId);
+
+    return this.http.delete<Job>(this.apiUrl+"/job/delete/"+job.id);
   }
 
   editJob(job : Job): Observable <Job>{

@@ -41,6 +41,12 @@ export class BodyComponent implements OnInit {
     this.jobAdd(response)
        console.log(response);
     }
+    else if(response instanceof Education){
+      this.educationAdd(response)
+    }
+    else if(response instanceof Project){
+      this.projectAdd(response)
+    }
 })
   this.logued= this.auth.isUserLoggedIn()
   this.adm = this.auth.isAdmin()
@@ -65,20 +71,43 @@ export class BodyComponent implements OnInit {
    // console.log("evento emitido :     "+job.id);
     this.jobsservice.deleteJob(job).subscribe(() =>
     [
-      this.jobs = this.jobs.filter ((j) => j.getId !== job.getId)
+      this.jobs = this.jobs.filter ((j) => j.id !== job.id)
     ]);
+  }
+
+  projectAdd (pro: Project){
+
+
+
+  this.projectService.editAddProject(pro).subscribe ((data: Project)=>{
+
+    this.projects = this.projects.concat([pro])
+  })
+
+
+  }
+
+  educationAdd(education : Education){
+
+
+    let index = 0;
+    let edun : Education = education;
+  this.educationService.ediatAddEducation(education).subscribe ((data: Education)=>{
+       edun=data
+
+
+      this.educations =this.educations.concat([education])
+      })
   }
 
   jobAdd(job : Job) {
 
-    let index = 0;
-    job.setId=0
-    let jbn : Job = job;
+
     this.jobsservice.editJob(job).subscribe ((data: Job)=>{
-    jbn=data
 
 
-  this.jobs=this.jobs.concat([job])
+
+  this.jobs=this.jobs.concat([data])
 
 
   })
@@ -141,7 +170,7 @@ export class BodyComponent implements OnInit {
           if (jb.id === pro.id)
           {
             //console.log("evento jobEdit :     "+job.id);
-            pron.logo=jb.logo
+
             pron.title=jb.title
             pron.subTitle=jb.subTitle
             pron.description=jb.description
@@ -170,7 +199,7 @@ export class BodyComponent implements OnInit {
 
       educationEdit (edu : Education){
 
-        edu.subTitle="78...."
+
         let index = 0;
         let edun : Education = edu;
       this.educationService.ediatAddEducation(edu).subscribe ((data: Education)=>{
@@ -179,15 +208,15 @@ export class BodyComponent implements OnInit {
 
       this.educations =this.educations.map( (jb, index, array) => {
 
-          if (jb.id === edu.id)
+          if (jb.getid === edu.getid)
           {
             //console.log("evento jobEdit :     "+job.id);
-            edun.logo=jb.logo
-            edun.title=jb.title
-            edun.subTitle=jb.subTitle
-            edun.description=jb.description
-            edun.start=jb.start
-            edun.end=jb.end
+            edun.setlogo=jb.getlogo
+            edun.settitle=jb.gettitle
+            edun.setsubTitle=jb.getsubTitle
+            edun.setdescription=jb.getdescription
+            edun.setstart=jb.getstart
+            edun.setend=jb.getend
 
             return edun
           }

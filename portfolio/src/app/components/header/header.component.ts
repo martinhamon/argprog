@@ -52,16 +52,11 @@ export class HeaderComponent implements OnInit {
    dialogAdd.afterClosed().subscribe(obj => {
       if (obj != undefined)
       {
-        if (obj instanceof  Job){
-//Llmar al servicio encargado de los mensajes
-           // this.emitJobAdd.emit(obj)
+
       this.comuicationService.sendMessage(obj)
 
-        }
-
-
       }
-       console.log("sdfsdf")
+
     });
   }
 

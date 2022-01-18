@@ -4,6 +4,7 @@ import { Education } from 'src/app/EducationTemplate';
 import { Job } from 'src/app/jobsTemplate';
 import { Project } from 'src/app/ProjectTemplate';
 import { EventEmitter } from '@angular/core';
+import { Skill } from 'src/app/SkillTemplate';
 @Component({
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',
@@ -11,7 +12,10 @@ import { EventEmitter } from '@angular/core';
 })
 export class DialogComponent implements OnInit {
  job :Job = new Job()
- @Output() addData : EventEmitter<Job>= new EventEmitter()
+ edu :Education = new Education()
+ //skill : Skill = new Skill()
+ pro : Project = new Project()
+ //@Output() addData : EventEmitter<Job>= new EventEmitter()
   constructor(public dialogRef: MatDialogRef<DialogComponent>,
     @ Inject(MAT_DIALOG_DATA) public data: any) { }
 
@@ -19,7 +23,7 @@ export class DialogComponent implements OnInit {
     this.dialogRef.disableClose = true;
 
     this.dialogRef.backdropClick().subscribe(_ => {
-      this.dialogRef.close(this.job);
+      this.dialogRef.close(this.pro);
     })
   }
   cancelar() {
@@ -27,13 +31,13 @@ export class DialogComponent implements OnInit {
   }
  isJob(): boolean{
 
-    console.log("isjob   "+ (this.data instanceof  Job))
+   // console.log("isjob   "+ (this.data instanceof  Job))
     this.job =this.data
     this.data=this.job
     return this.data instanceof  Job;
   }
   isEducation(): boolean{
-    console.log(" isEducation  "+ (this.data instanceof  Education))
+ //   console.log(" isEducation  "+ (this.data instanceof  Education))
     return this.data instanceof  Education;
   }
  /* isSkill(): boolean{
@@ -41,7 +45,7 @@ export class DialogComponent implements OnInit {
     return this.data instanceof  Job;
   }*/
   isProject(): boolean{
-    console.log(this.data instanceof  Project)
+ //   console.log(this.data instanceof  Project)
     return this.data instanceof  Project;
   }
 

@@ -1,62 +1,62 @@
 export class Education{
- private _id: number
-  public get id(): number {
-    return this._id
+  public id: number
+  public get getid(): number {
+    return this.id
   }
-  public set id(value: number) {
-    this._id = value
+  public set setid(value: number) {
+    this.id = value
   }
- private _logo: String
-  public get logo(): String {
-    return this._logo
+  public logo: String
+  public get getlogo(): String {
+    return this.logo
   }
-  public set logo(value: String) {
-    this._logo = value
+  public set setlogo(value: String) {
+    this.logo = value
   }
- private _title: String
-  public get title(): String {
-    return this._title
+  public title: String
+  public get gettitle(): String {
+    return this.title
   }
-  public set title(value: String) {
-    this._title = value
+  public set settitle(value: String) {
+    this.title = value
   }
- private _subTitle: String
-  public get subTitle(): String {
-    return this._subTitle
+  public subTitle: String
+  public get getsubTitle(): String {
+    return this.subTitle
   }
-  public set subTitle(value: String) {
-    this._subTitle = value
+  public set setsubTitle(value: String) {
+    this.subTitle = value
   }
- private _description: String
-  public get description(): String {
-    return this._description
+  public description: String
+  public get getdescription(): String {
+    return this.description
   }
-  public set description(value: String) {
-    this._description = value
+  public set setdescription(value: String) {
+    this.description = value
   }
- private _start: String
-  public get start(): String {
-    return this._start
+  public start: String
+  public get getstart(): String {
+    return this.start
   }
-  public set start(value: String) {
-    this._start = value
+  public set setstart(value: String) {
+    this.start = value
   }
- private _end: String
-  public get end(): String {
-    return this._end
+  public end: String
+  public get getend(): String {
+    return this.end
   }
-  public set end(value: String) {
-    this._end = value
+  public set setend(value: String) {
+    this.end = value
   }
 
   constructor  (){
-    this._id=0
-    this._logo=""
-    this._title=""
-    this._subTitle=""
-    this._description=""
-    this._start=""
-    this._end=""
+    this.id=0
+    this.logo=""
+    this.title=""
+    this.subTitle=""
+    this.description=""
+    this.start=""
+    this.end=""
 }
 
 }

@@ -1,53 +1,47 @@
 export class Project{
-  private _id: number
-  public get id(): number {
-    return this._id
+  public id: number
+  public get getid(): number {
+    return this.id
   }
-  public set id(value: number) {
-    this._id = value
+  public set setid(value: number) {
+    this.id = value
   }
-  private _logo: String
-  public get logo(): String {
-    return this._logo
+
+  public title: String
+  public get gettitle(): String {
+    return this.title
   }
-  public set logo(value: String) {
-    this._logo = value
+  public set settitle(value: String) {
+    this.title = value
   }
-  private _title: String
-  public get title(): String {
-    return this._title
+  public subTitle: String
+  public get getsubTitle(): String {
+    return this.subTitle
   }
-  public set title(value: String) {
-    this._title = value
+  public set setsubTitle(value: String) {
+    this.subTitle = value
   }
-  private _subTitle: String
-  public get subTitle(): String {
-    return this._subTitle
+  public   description: String
+  public get getdescription(): String {
+    return this.description
   }
-  public set subTitle(value: String) {
-    this._subTitle = value
+  public set setdescription(value: String) {
+    this.description = value
   }
-  private   _description: String
-  public get description(): String {
-    return this._description
+  public url: String
+  public get geturl(): String {
+    return this.url
   }
-  public set description(value: String) {
-    this._description = value
-  }
-  private _url: String
-  public get url(): String {
-    return this._url
-  }
-  public set url(value: String) {
-    this._url = value
+  public set seturl(value: String) {
+    this.url = value
   }
   constructor  (){
-    this._id=0
-    this._logo=""
-    this._title=""
-    this._subTitle=""
-    this._description=""
-    this._url=""
+    this.id=0
+
+    this.title=""
+    this.subTitle=""
+    this.description=""
+    this.url=""
 
 }
 

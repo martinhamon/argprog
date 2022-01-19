@@ -67,11 +67,17 @@
             <input matInput [(ngModel)]="edu.description" type="text" placeholder="Descripcion">
         </mat-form-field>
         <mat-form-field>
-          <input matInput [(ngModel)]="edu.start" type="date" placeholder="Inicio">
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput  [(ngModel)]="edu.end" type="date" placeholder="Fin">
-    </mat-form-field>
+          <mat-label>Fecha de inicio</mat-label>
+          <input matInput [matDatepicker]="pickereducationstart" (dateChange)="updateDateEducationStart($event)" [ngModel]="edu.start">
+          <mat-datepicker-toggle matSuffix [for]="pickereducationstart"></mat-datepicker-toggle>
+          <mat-datepicker #pickereducationstart ngDefaultControl  ></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Fecha de fin</mat-label>
+          <input matInput [matDatepicker]="pickereducationend" [ngModel]="edu.end" (dateChange)="updateDateEducationEnd($event)">
+          <mat-datepicker-toggle matSuffix [for]="pickereducationend"></mat-datepicker-toggle>
+          <mat-datepicker #pickereducationend></mat-datepicker>
+        </mat-form-field>
 
       </div>
   </div>

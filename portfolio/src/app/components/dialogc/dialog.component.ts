@@ -60,6 +60,14 @@ export class DialogComponent implements OnInit {
 
      }
   }
+  updateDateEducationStart(date : any){
+    if(this.isEducation())
+    {
+     this.edu.start=date.value
+
+
+    }
+ }
 
   updateDateJobEnd (date : any){
     if(this.isJob())
@@ -69,4 +77,13 @@ export class DialogComponent implements OnInit {
 
     }
  }
+
+ updateDateEducationEnd(date : any){
+  if(this.isEducation())
+  {
+   this.edu.end=date.value
+
+
+  }
+}
 }

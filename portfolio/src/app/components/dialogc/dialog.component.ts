@@ -22,9 +22,9 @@ export class DialogComponent implements OnInit {
   ngOnInit(): void {
     this.dialogRef.disableClose = true;
 
-    this.dialogRef.backdropClick().subscribe(_ => {
-      this.dialogRef.close(this.pro);
-    })
+   // this.dialogRef.backdropClick().subscribe(_ => {
+     // this.dialogRef.close(this.pro);
+  //  })
   }
   cancelar() {
     this.dialogRef.close();

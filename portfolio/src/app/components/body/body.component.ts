@@ -24,22 +24,27 @@ export class BodyComponent implements OnInit {
    educations : Education []=[]
   logued :boolean = false
   adm : boolean = false
-
+ private comuServiceEndRef : Subscription =new Subscription
   constructor(private jobsservice :JobsService,
     private educationService: EducationService, private projectService: ProjectService,
     private auth : AuthenticationService, public dialog: MatDialog, private comuicationService : ComunicationService
     ) { }
     ngOnDestroy() {
-
+      this.comuServiceEndRef.unsubscribe()
     }
   ngOnInit(): void {
+
  //Suscribirse al servicio
- this.comuicationService.sendMessageObservable.subscribe(response =>{
-   if (response instanceof Job)
+
+ this.comuServiceEndRef=this.comuicationService.sendMessageObservable.subscribe(response =>{
+console.log("Evento disparado.........");
+
+  if (response instanceof Job)
    {
 
     this.jobAdd(response)
        console.log(response);
+
     }
     else if(response instanceof Education){
       this.educationAdd(response)
@@ -81,7 +86,7 @@ export class BodyComponent implements OnInit {
 
   this.projectService.editAddProject(pro).subscribe ((data: Project)=>{
 
-    this.projects = this.projects.concat([pro])
+    this.projects = this.projects.concat([data])
   })
 
 
@@ -90,28 +95,22 @@ export class BodyComponent implements OnInit {
   educationAdd(education : Education){
 
 
-    let index = 0;
-    let edun : Education = education;
+
   this.educationService.ediatAddEducation(education).subscribe ((data: Education)=>{
-       edun=data
 
 
-      this.educations =this.educations.concat([education])
+
+      this.educations =this.educations.concat([data])
       })
   }
 
-  jobAdd(job : Job) {
+  jobAdd(job : Job): void {
 
 
     this.jobsservice.editJob(job).subscribe ((data: Job)=>{
-
-
-
-  this.jobs=this.jobs.concat([data])
-
-
-  })
-}
+      this.jobs=this.jobs.concat([data])
+       })
+  }
 
 
 
@@ -125,9 +124,10 @@ export class BodyComponent implements OnInit {
 
       this.jobs =this.jobs.map( (jb, index, array) => {
 
-        if (jb.getId === job.getId)
+        if (jb.id === job.id)
         {
           //console.log("evento jobEdit :     "+job.id);
+          jbn.id=jb.id
           jbn.setLogo=jb.getLogo
           jbn.setTtitle=jb.getTitle
           jbn.setSubTitle=jb.getSubTitle
@@ -170,7 +170,7 @@ export class BodyComponent implements OnInit {
           if (jb.id === pro.id)
           {
             //console.log("evento jobEdit :     "+job.id);
-
+            pron.id=jb.id
             pron.title=jb.title
             pron.subTitle=jb.subTitle
             pron.description=jb.description
@@ -208,9 +208,10 @@ export class BodyComponent implements OnInit {
 
       this.educations =this.educations.map( (jb, index, array) => {
 
-          if (jb.getid === edu.getid)
+          if (jb.id === edu.id)
           {
             //console.log("evento jobEdit :     "+job.id);
+            edun.id=jb.id
             edun.setlogo=jb.getlogo
             edun.settitle=jb.gettitle
             edun.setsubTitle=jb.getsubTitle

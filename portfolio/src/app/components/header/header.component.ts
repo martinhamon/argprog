@@ -26,6 +26,7 @@ export class HeaderComponent implements OnInit {
     this.logued= this.auth.isUserLoggedIn()
   this.adm = this.auth.isAdmin()
 
+
   }
 
   isLoguedIn():boolean
@@ -48,6 +49,7 @@ export class HeaderComponent implements OnInit {
 
     const dialogAdd = this.dialog.open(DialogComponent, {
      data: obj
+
     });
    dialogAdd.afterClosed().subscribe(obj => {
       if (obj != undefined)

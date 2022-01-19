@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { shareReplay, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,4 +15,5 @@ export class ComunicationService {
     this.message=object
     this.sendMessageSubject.next(object)
   }
+
 }

@@ -3,6 +3,8 @@ import { Job } from 'src/app/jobsTemplate';
 
 import { faPen, faPenFancy, faTrash, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { JobsService } from 'src/app/services/jobs.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../dialogc/dialog.component';
 @Component({
   selector: 'app-mh-card',
   templateUrl: './mh-card.component.html',
@@ -24,7 +26,7 @@ export class MhCardComponent implements OnInit {
   start: string = ""
   end: string = ""
 
-  constructor( ) { }
+  constructor(public dialog: MatDialog, ) { }
 
   ngOnInit(): void {
 
@@ -49,5 +51,27 @@ onEdit() : void {
   console.log("Editando")
   this.emitEdit.emit()
 }
+
+
+abrirDialogo(addType : string) {
+  let j : Job = new Job()
+
+
+
+
+  const dialogAdd = this.dialog.open(DialogComponent, {
+   data: j
+  });
+ dialogAdd.afterClosed().subscribe(obj => {
+    if (obj != undefined)
+    {
+
+    //Guardar objeto editado.
+
+    }
+
+  });
+}
+
 
 }

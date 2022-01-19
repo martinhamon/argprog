@@ -5,6 +5,7 @@ import { faPen, faPenFancy, faTrash, IconDefinition } from '@fortawesome/free-so
 import { JobsService } from 'src/app/services/jobs.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../dialogc/dialog.component';
+import { ComunicationService } from 'src/app/services/comunication-service';
 @Component({
   selector: 'app-mh-card',
   templateUrl: './mh-card.component.html',
@@ -26,7 +27,7 @@ export class MhCardComponent implements OnInit {
   start: string = ""
   end: string = ""
 
-  constructor(public dialog: MatDialog, ) { }
+  constructor( public dialog: MatDialog, private comuicationService : ComunicationService ) { }
 
   ngOnInit(): void {
 
@@ -50,14 +51,19 @@ this.emitDelete.emit(this.job_id);
 onEdit() : void {
   console.log("Editando")
   this.emitEdit.emit()
+  this.abrirDialogo()
 }
 
 
-abrirDialogo(addType : string) {
+abrirDialogo() {
   let j : Job = new Job()
-
-
-
+  j.id=Number( this.job_id)
+  j.logo=this.logo
+  j.title = this.title
+  j.subTitle=this.subTitle
+  j.tasks=this.tasks
+  j.start=this.start
+  j.end=this.end
 
   const dialogAdd = this.dialog.open(DialogComponent, {
    data: j
@@ -66,7 +72,9 @@ abrirDialogo(addType : string) {
     if (obj != undefined)
     {
 
-    //Guardar objeto editado.
+    //Avisar de cambio para guardar datos y actualizar vista
+    this.comuicationService.sendMessage(obj)
+
 
     }
 

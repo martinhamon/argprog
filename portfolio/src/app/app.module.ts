@@ -34,10 +34,11 @@ import { RouterModule } from '@angular/router';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BasicAuthHtppInterceptorService } from './services/basic-auth-htpp-interceptor-service.service';
-
+import {MatNativeDateModule} from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { DialogComponent } from './components/dialogc/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,6 +54,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     LoginComponent,
     PortfolioComponent,
     DialogComponent,
+
 
   ],
   imports: [
@@ -76,7 +78,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     ReactiveFormsModule,
     MatInputModule,
     MatDialogModule,
-    FormsModule
+    FormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule
 
   ],
   providers: [{ provide:HTTP_INTERCEPTORS, useClass:BasicAuthHtppInterceptorService, multi:true}],

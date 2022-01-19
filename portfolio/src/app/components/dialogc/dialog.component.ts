@@ -3,8 +3,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 import { Education } from 'src/app/EducationTemplate';
 import { Job } from 'src/app/jobsTemplate';
 import { Project } from 'src/app/ProjectTemplate';
-import { EventEmitter } from '@angular/core';
-import { Skill } from 'src/app/SkillTemplate';
+
 @Component({
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',
@@ -38,6 +37,8 @@ export class DialogComponent implements OnInit {
   }
   isEducation(): boolean{
  //   console.log(" isEducation  "+ (this.data instanceof  Education))
+  this.edu =this.data
+    this.data=this.edu
     return this.data instanceof  Education;
   }
  /* isSkill(): boolean{
@@ -46,8 +47,26 @@ export class DialogComponent implements OnInit {
   }*/
   isProject(): boolean{
  //   console.log(this.data instanceof  Project)
+      this.pro =this.data
+    this.data=this.pro
     return this.data instanceof  Project;
   }
 
+  updateDateJobStart(date : any){
+     if(this.isJob())
+     {
+      this.job.start=date.value
 
+
+     }
+  }
+
+  updateDateJobEnd (date : any){
+    if(this.isJob())
+    {
+     this.job.end=date.value
+
+
+    }
+ }
 }

@@ -39,18 +39,31 @@ export class BodyComponent implements OnInit {
  this.comuServiceEndRef=this.comuicationService.sendMessageObservable.subscribe(response =>{
 console.log("Evento disparado.........");
 
-  if (response instanceof Job)
+  if (response instanceof Job && (response as Job).id===0)
    {
 
     this.jobAdd(response)
        console.log(response);
 
     }
-    else if(response instanceof Education){
+    else if (response instanceof Job && (response as Job).id!=0)
+   {
+
+    this.jobEdit(response)
+       console.log(response);
+
+    }
+    else if(response instanceof Education && (response as Education).id===0){
       this.educationAdd(response)
     }
-    else if(response instanceof Project){
+    else if(response instanceof Education && (response as Education).id!=0){
+      this.educationEdit(response)
+    }
+    else if(response instanceof Project && (response as Project).id===0){
       this.projectAdd(response)
+    }
+    else if(response instanceof Project && (response as Project).id!=0){
+      this.projectEdit(response)
     }
 })
   this.logued= this.auth.isUserLoggedIn()
@@ -115,7 +128,7 @@ console.log("Evento disparado.........");
 
 
   jobEdit(job : Job) {
-        job.setSubTitle="78...."
+
         let index = 0;
         let jbn : Job = job;
       this.jobsservice.editJob(job).subscribe ((data: Job)=>{
@@ -158,7 +171,7 @@ console.log("Evento disparado.........");
 
       projectEdit (pro: Project){
 
-        pro.subTitle="1...."
+
         let index = 0;
         let pron : Project = pro;
       this.projectService.editAddProject(pro).subscribe ((data: Project)=>{
@@ -169,14 +182,9 @@ console.log("Evento disparado.........");
 
           if (jb.id === pro.id)
           {
-            //console.log("evento jobEdit :     "+job.id);
-            pron.id=jb.id
-            pron.title=jb.title
-            pron.subTitle=jb.subTitle
-            pron.description=jb.description
-            pron.url=jb.url
 
-            return pron
+
+            return pro
           }
           else
 

@@ -1,7 +1,7 @@
 <div *ngIf="isJob()">
   <h1 mat-dialog-title>Ingresar trabajo</h1>
   <div mat-dialog-content>
-      <div style="display: flex;flex-direction: column; margin:1rem auto; max-width: 600px; padding: 1rem;">
+      <div style="display: flex;flex-direction: column; margin:1rem auto; max-width: 3000px; padding: 1rem;">
 
 
 
@@ -17,12 +17,25 @@
       <mat-form-field>
         <input matInput [(ngModel)]="job.tasks" type="text" placeholder="Descripcion del trabajo">
     </mat-form-field>
-    <mat-form-field>
-      <input matInput [(ngModel)]="job.start" type="date" placeholder="Fecha de inicio">
+    <!--mat-form-field>
+      <input matInput [(ngModel)]="job.start" type="date" placeholder="Fin">
+  </mat-form-field-->
+  <mat-form-field>
+    <mat-label>Fecha de inicio</mat-label>
+    <input matInput [matDatepicker]="pickerjobstart" (dateChange)="updateDateJobStart($event)" [ngModel]="job.start">
+    <mat-datepicker-toggle matSuffix [for]="pickerjobstart"></mat-datepicker-toggle>
+    <mat-datepicker #pickerjobstart ngDefaultControl  ></mat-datepicker>
   </mat-form-field>
   <mat-form-field>
-    <input matInput [(ngModel)]="job.end" type="date" placeholder="Fecha de fin">
-</mat-form-field>
+    <mat-label>Fecha de fin</mat-label>
+    <input matInput [matDatepicker]="pickerjobend" [ngModel]="job.end" (dateChange)="updateDateJobEnd($event)">
+    <mat-datepicker-toggle matSuffix [for]="pickerjobend"></mat-datepicker-toggle>
+    <mat-datepicker #pickerjobend></mat-datepicker>
+  </mat-form-field>
+  <!--mat-form-field>
+    <input matInput  [(ngModel)]="job.end" type="date" placeholder="Fecha de fin">
+</mat-form-field-->
+
 
 
 
@@ -57,7 +70,7 @@
           <input matInput [(ngModel)]="edu.start" type="date" placeholder="Inicio">
       </mat-form-field>
       <mat-form-field>
-        <input matInput [(ngModel)]="edu.end" type="date" placeholder="Fin">
+        <input matInput  [(ngModel)]="edu.end" type="date" placeholder="Fin">
     </mat-form-field>
 
       </div>

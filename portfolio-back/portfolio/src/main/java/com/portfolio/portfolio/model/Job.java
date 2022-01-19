@@ -23,14 +23,15 @@ import lombok.Setter;
 public class Job {
     @Id
     @GeneratedValue (strategy =GenerationType.IDENTITY)
+    @Column (length = 512)
     private Long id;
-    @Column
+    @Column     ( columnDefinition="varchar(1024)")
     private String logo;
     @Column
     private String title;
     @Column
     private String subTitle;
-    @Column
+    @Column  ( columnDefinition="varchar(4096)")
     private String tasks;
     @Column
     private Date start;

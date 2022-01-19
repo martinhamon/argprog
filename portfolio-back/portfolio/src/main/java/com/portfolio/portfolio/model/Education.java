@@ -23,14 +23,16 @@ import lombok.Setter;
 public class Education {
      @Id
     @GeneratedValue (strategy =GenerationType.IDENTITY)
+      @Column 
+     
     private Long id;
-    @Column
+    @Column     ( columnDefinition="varchar(1024)")
     private String logo;
     @Column
     private String title;
     @Column
     private String subTitle;
-    @Column (length = 2000)
+    @Column  ( columnDefinition="varchar(4096)")
     private String description;
     @Column
     private Date start;

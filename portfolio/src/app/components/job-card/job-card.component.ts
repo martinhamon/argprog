@@ -8,10 +8,10 @@ import { DialogComponent } from '../dialogc/dialog.component';
 import { ComunicationService } from 'src/app/services/comunication-service';
 @Component({
   selector: 'app-mh-card',
-  templateUrl: './mh-card.component.html',
-  styleUrls: ['./mh-card.component.css']
+  templateUrl: './job-card.component.html',
+  styleUrls: ['./job-card.component.css']
 })
-export class MhCardComponent implements OnInit {
+export class JobCardComponent implements OnInit {
   @Input() job:any
   @Input() logued : boolean=false;
   @Input () adm : boolean = false

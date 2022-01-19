@@ -21,7 +21,7 @@ import { BodyComponent } from './components/body/body.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ImageButtonComponent } from './components/image-button/image-button.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MhCardComponent } from './components/mh-card/mh-card.component';
+import { JobCardComponent } from './components/job-card/job-card.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import {HttpClient, HttpClientModule, HttpHandler, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { EducationCardComponent } from './components/education-card/education-card.component';
@@ -46,7 +46,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     BodyComponent,
     FooterComponent,
     ImageButtonComponent,
-    MhCardComponent,
+    JobCardComponent,
     NavBarComponent,
     EducationCardComponent,
     SkillsCardComponent,

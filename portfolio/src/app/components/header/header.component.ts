@@ -10,6 +10,8 @@ import { Project } from 'src/app/ProjectTemplate';
 import { EventEmitter } from '@angular/core';
 import { ComunicationService, } from 'src/app/services/comunication-service';
 import { Router } from '@angular/router';
+import { ProfileService } from 'src/app/services/profile.service';
+import { Profile } from 'src/app/profileTemplate';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -18,16 +20,20 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
   logued :boolean = false
   adm : boolean = false
+  profile :Profile=new Profile()
   @Output() emitJobAdd : EventEmitter <any> = new EventEmitter()
   constructor(private auth : AuthenticationService, public dialog: MatDialog
     , private jobService : JobsService, private comuicationService : ComunicationService,
-    private route :Router
+    private route :Router, private profileService : ProfileService
     ) { }
 
   ngOnInit(): void {
     this.logued= this.auth.isUserLoggedIn()
   this.adm = this.auth.isAdmin()
+   this.profileService.getProfile(1).subscribe(data=> {
+      this.profile=data
 
+   })
 
   }
 

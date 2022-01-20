@@ -24,15 +24,15 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProfileController {
     @Autowired ProfileService profileService;
     
-    @PreAuthorize("hasRole('ADMIN')")
-    @RequestMapping (value = "/profile/get/{id}", method = RequestMethod.GET)
-    public Profile getProfile  (@PathVariable Long id){
-        return this.profileService.getProfile(id);
+    
+    @RequestMapping (value = "/profile/get", method = RequestMethod.GET)
+    public Profile getProfile  (){
+        return this.profileService.getProfile(Long.parseLong("1"));
     }
     
     @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping (value = "/profile/save", method = RequestMethod.POST)
-    public Profile getProfile  (@RequestBody Profile profile){
+    public Profile SaveProfile  (@RequestBody Profile profile){
         return this.profileService.save(profile);
     }
     

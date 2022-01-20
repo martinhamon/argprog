@@ -41,8 +41,11 @@ div#info-actions
   display: flex;
 }
 
-.info{
+.info-new{
 padding: 16px;
+margin-left: auto;
+margin-right: auto;
+
 }
 
 .info-data{
@@ -120,4 +123,7 @@ padding-right: 10px;
 
 word-wrap: break-word
 
+}
+.all{
+  display: grid;
 }

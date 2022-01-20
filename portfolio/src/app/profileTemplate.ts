@@ -9,6 +9,7 @@ export class Profile {
  public address: string="";
  public dob: string="";
  public logo: string="";
+ public shortDescription : string="";
 
  constructor (){}
 }

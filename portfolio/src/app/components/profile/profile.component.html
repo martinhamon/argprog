@@ -1,42 +1,62 @@
-<div class="card mat-card" id="first-card">
+<mat-card   >
   <div class="profile-background">
     <div class="size">
     <img class="image-responsive" src="../../../assets/images/logo.jpg" alt="">
   </div>
   </div>
-    <div class="info">
+    <div>
       <div >
-        <img  id="info-img" src="../../../assets/images/avatar.jpg" alt="">
-        <!--app-image-button></app-image--->
+        <img id="info-img" (click)="changeUrl()" [src]="profile.logo" alt="">
 
-        <div class="info-data">
+        <div class="all" >
+          <mat-form-field appearance="fill">
+            <mat-label>Nombre </mat-label>
+            <input matInput [(ngModel)]="profile.name">
+          </mat-form-field> <br>
+          <mat-form-field appearance="fill">
+            <mat-label>Apellido </mat-label>
+            <input matInput [(ngModel)]="profile.lastName">
+          </mat-form-field><br>
+          <mat-form-field appearance="fill">
+            <mat-label>Descripcion corta </mat-label>
+            <input matInput [(ngModel)]="profile.shortDescription">
+          </mat-form-field> &nbsp; <br>
+          <!--mat-form-field appearance="fill">
+            <mat-label>Descripcion general </mat-label>
+            <input matInput >
+          </mat-form-field-->
 
-            <h1>Martin Hamon</h1>
-            <div id="info-company">Full Stack Developer
-              Jr
-            <div id="info-contact">
-              <span>Cursando Argentina programa desarrollado por el INTI. </span>
+          <mat-form-field  appearance="fill">
+            <mat-label>Descripcion general</mat-label>
+            <textarea matInput [(ngModel)]="profile.description"
+                      cdkTextareaAutosize
+                      #autosize="cdkTextareaAutosize"
+                      cdkAutosizeMinRows="1"
+                      cdkAutosizeMaxRows="5"></textarea>
+          </mat-form-field>
 
-            </div>
-          </div>
+          &nbsp;<br>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Telefono </mat-label>
+            <input matInput [(ngModel)]="profile.telephone">
+          </mat-form-field> &nbsp;<br>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Direccion </mat-label>
+            <input matInput [(ngModel)]="profile.address" >
+          </mat-form-field> &nbsp; <br>
+
+
+          <button mat-raised-button (click)="OnUpdate()">Actualizar perfil</button>
+
+
 
         </div>
       </div>
-          <div class="info-tech">
 
-
-              <!--img class="study-link" src="../../../assets/images/ulp.png" alt="ULP">
-              <p  >texto a añadir</p>
-              <h1>ULP</h1>
-              <div id="info-company">M-code</div>
-              <div id= "info-contact">
-                <span>San Luis </span>
-                <span><a href="#">Informacion de contacto</a></span>
-              </div-->
-
-          </div>
     </div>
 
 
 
-</div>
+</mat-card >

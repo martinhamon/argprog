@@ -43,8 +43,10 @@ public class Profile {
     private String dob;
     @Column     ( columnDefinition="varchar(1024)")
     private String logo;
+    @Column     ( columnDefinition="varchar(1024)")
+    private String shortDescription;
 
-    public Profile(Long id, String name, String lastName, String description, String telephone, String city, String country, String address, String dob, String logo) {
+    public Profile(Long id, String name, String lastName, String description, String telephone, String city, String country, String address, String dob, String logo, String shortDescription) {
         this.id = id;
         this.name = name;
         this.lastName = lastName;
@@ -55,7 +57,10 @@ public class Profile {
         this.address = address;
         this.dob = dob;
         this.logo = logo;
+        this.shortDescription = shortDescription;
     }
+
+    
 
     public Profile() {
     }
@@ -198,5 +203,19 @@ public class Profile {
      */
     public void setLogo(String logo) {
         this.logo = logo;
+    }
+
+    /**
+     * @return the shortDescription
+     */
+    public String getShortDescription() {
+        return shortDescription;
+    }
+
+    /**
+     * @param shortDescription the shortDescription to set
+     */
+    public void setShortDescription(String shortDescription) {
+        this.shortDescription = shortDescription;
     }
 }

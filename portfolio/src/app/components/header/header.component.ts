@@ -71,5 +71,6 @@ export class HeaderComponent implements OnInit {
   }
   onEdit(){
     this.route.navigate(['/profile'])
+    this.comuicationService.sendMessage(this.profile)
   }
 }

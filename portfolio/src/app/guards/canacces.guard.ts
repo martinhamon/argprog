@@ -16,13 +16,13 @@ canActivate(
 
 
 
-      /*if (!this._authService.isUserLoggedIn()) {
+      if (!this._authService.isUserLoggedIn()) {
 
         this.router.navigate(['login']);
 
         return false;
 
-      }*/
+      }
 
       return true;
 

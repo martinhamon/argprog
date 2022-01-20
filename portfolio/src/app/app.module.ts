@@ -39,6 +39,7 @@ import { MatInputModule } from '@angular/material/input';
 import { DialogComponent } from './components/dialogc/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { ProfileComponent } from './components/profile/profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +55,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     LoginComponent,
     PortfolioComponent,
     DialogComponent,
+    ProfileComponent,
 
 
   ],

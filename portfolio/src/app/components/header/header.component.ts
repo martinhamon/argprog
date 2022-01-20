@@ -9,6 +9,7 @@ import { Project } from 'src/app/ProjectTemplate';
 
 import { EventEmitter } from '@angular/core';
 import { ComunicationService, } from 'src/app/services/comunication-service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -19,7 +20,8 @@ export class HeaderComponent implements OnInit {
   adm : boolean = false
   @Output() emitJobAdd : EventEmitter <any> = new EventEmitter()
   constructor(private auth : AuthenticationService, public dialog: MatDialog
-    , private jobService : JobsService, private comuicationService : ComunicationService
+    , private jobService : JobsService, private comuicationService : ComunicationService,
+    private route :Router
     ) { }
 
   ngOnInit(): void {
@@ -61,5 +63,7 @@ export class HeaderComponent implements OnInit {
 
     });
   }
-
+  onEdit(){
+    this.route.navigate(['/profile'])
+  }
 }

@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable, observable } from 'rxjs';
 import { map } from 'rxjs';
 import { Router } from '@angular/router';
 import {Rol} from '../rolTemplate';
+import { API_URL } from '../globals';
 export class User {
   constructor(public status: string) {}
 }
@@ -21,7 +22,7 @@ export class AuthenticationService  {
 
    authenticate(username : string, password : string) {
     return this.httpClient
-      .post<any>("http://localhost:8080/login", { username, password })
+      .post<any>(API_URL+"login", { username, password })
       .pipe(
         map((userData: { token: string; roles: any; }) => {
           sessionStorage.setItem("username", username);

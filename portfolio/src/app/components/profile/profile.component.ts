@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Profile } from 'src/app/profileTemplate';
 import { ComunicationService } from 'src/app/services/comunication-service';
@@ -13,7 +14,8 @@ export class ProfileComponent implements OnInit {
  profile : Profile= new Profile()
  logoValid:boolean=false
  private comuServiceEndRef : Subscription =new Subscription
-  constructor( private comuicationService : ComunicationService, private profileService : ProfileService
+  constructor( private comuicationService : ComunicationService, private profileService : ProfileService,
+    private rute : Router
       ) { }
   ngOnDestroy() {
     this.comuServiceEndRef.unsubscribe()
@@ -47,7 +49,7 @@ export class ProfileComponent implements OnInit {
  OnUpdate(){
 
   this.profileService.saveProfile(this.profile).subscribe(response => {
-    console.log("profile" + this.profile.description)
+    this.rute.navigate(['/portfolio'])
   })
 
  }

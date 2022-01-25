@@ -5,6 +5,7 @@
 package com.portfolio.portfolio.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.io.Serializable;
 import javax.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,7 +24,7 @@ import java.util.Set;
 @Setter
 @Entity
 @Table(name = "users")
-public class User {
+public class User implements Serializable {
 
     /**
      * @return the token

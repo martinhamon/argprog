@@ -6,8 +6,11 @@
   </div>
     <div>
       <div >
-        <img id="info-img" (click)="changeUrl()" [src]="profile.logo" alt="">
-
+        <img id="info-img"  [src]="profile.logo" alt="">
+        <mat-form-field appearance="fill">
+          <mat-label>URL de avatar </mat-label>
+          <input matInput [(ngModel)]="profile.logo">
+        </mat-form-field>
         <div class="all" >
           <mat-form-field appearance="fill">
             <mat-label>Nombre </mat-label>

@@ -40,6 +40,7 @@ import { DialogComponent } from './components/dialogc/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { ProfileComponent } from './components/profile/profile.component';
+import { SkillItemComponent } from './components/skill-item/skill-item.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,6 +57,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     PortfolioComponent,
     DialogComponent,
     ProfileComponent,
+    SkillItemComponent,
 
 
   ],

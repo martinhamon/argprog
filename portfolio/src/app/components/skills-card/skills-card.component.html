@@ -2,74 +2,19 @@
 
  <mat-card-content>
 
-  <mat-grid-list cols="3" rowHeight="150px" gutterSize="5px" >
+  <mat-toolbar color="primary">
+    Card view demo
+  </mat-toolbar>
+  <div class="content">
+    <div fxLayout="row wrap" fxLayoutGap="16px grid">
+      <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let skill of skills">
+    <app-skill-item
+    [skill]="skill"
+    ></app-skill-item>
+  </div>
+</div>
+</div>
 
-
-
-    <mat-grid-tile>
-      <mat-grid-tile-footer>
-        <h3>SQL</h3>
-      </mat-grid-tile-footer>
-      <mat-spinner mode="determinate" color="{{color}}" value="{{value}}" diameter="{{diameter}}">
-      </mat-spinner>
-    </mat-grid-tile>
-    <mat-grid-tile>
-      <mat-grid-tile-footer>
-        <h3>C#</h3>
-      </mat-grid-tile-footer>
-      <mat-spinner mode="determinate" color="{{color}}" value="{{value}}" diameter="{{diameter}}">
-
-      </mat-spinner>
-    </mat-grid-tile>
-    <mat-grid-tile>
-      <mat-grid-tile-footer>
-        <h3>Android</h3>
-      </mat-grid-tile-footer>
-      <mat-spinner mode="determinate" color="{{color}}" value="{{value}}" diameter="{{diameter}}">
-
-      </mat-spinner>
-    </mat-grid-tile>
-    <mat-grid-tile>
-      <mat-grid-tile-footer>
-        <h3>IOS</h3>
-      </mat-grid-tile-footer>
-      <mat-spinner mode="determinate" color="{{color}}" value="{{value}}" diameter="{{diameter}}">
-
-      </mat-spinner>
-    </mat-grid-tile>
-    <mat-grid-tile>
-      <mat-grid-tile-footer>
-        <h3>Angular</h3>
-      </mat-grid-tile-footer>
-      <mat-spinner mode="determinate" color="{{color}}" value="{{value}}" diameter="{{diameter}}">
-
-      </mat-spinner>
-    </mat-grid-tile>
-    <mat-grid-tile>
-      <mat-grid-tile-footer>
-        <h3>PHP</h3>
-      </mat-grid-tile-footer>
-      <mat-spinner mode="determinate" color="{{color}}" value="{{value}}" diameter="{{diameter}}">
-
-      </mat-spinner>
-    </mat-grid-tile>
-    <mat-grid-tile>
-      <mat-grid-tile-footer>
-        <h3>Laravel</h3>
-      </mat-grid-tile-footer>
-      <mat-spinner mode="determinate" color="{{color}}" value="{{value}}" diameter="{{diameter}}">
-
-      </mat-spinner>
-    </mat-grid-tile>
-    <mat-grid-tile>
-      <mat-grid-tile-footer>
-        <h3>Java</h3>
-      </mat-grid-tile-footer>
-      <mat-spinner mode="determinate" color="{{color}}" value="{{value}}" diameter="{{diameter}}">
-
-      </mat-spinner>
-    </mat-grid-tile>
-  </mat-grid-list>
  </mat-card-content>
 <mat-card-actions align="end"
 *ngIf="logued"

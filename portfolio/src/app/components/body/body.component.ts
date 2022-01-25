@@ -11,6 +11,7 @@ import { DialogComponent } from '../dialogc/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Skill } from 'src/app/SkillTemplate';
 import { ComunicationService } from 'src/app/services/comunication-service';
+import { SkillsService } from 'src/app/services/skills.service';
 @Component({
   selector: 'app-body',
   templateUrl: './body.component.html',
@@ -22,12 +23,14 @@ export class BodyComponent implements OnInit {
 
    projects : Project[]=[]
    educations : Education []=[]
+   skills : Skill[]=[]
   logued :boolean = false
   adm : boolean = false
  private comuServiceEndRef : Subscription =new Subscription
   constructor(private jobsservice :JobsService,
     private educationService: EducationService, private projectService: ProjectService,
     private auth : AuthenticationService, public dialog: MatDialog, private comuicationService : ComunicationService
+    , private skillService : SkillsService
     ) { }
     ngOnDestroy() {
       this.comuServiceEndRef.unsubscribe()
@@ -37,7 +40,7 @@ export class BodyComponent implements OnInit {
  //Suscribirse al servicio
 
  this.comuServiceEndRef=this.comuicationService.sendMessageObservable.subscribe(response =>{
-console.log("Evento disparado.........");
+console.log("Evento disparado........." + (response instanceof Skill));
 
   if (response instanceof Job && (response as Job).id===0)
    {
@@ -65,6 +68,12 @@ console.log("Evento disparado.........");
     else if(response instanceof Project && (response as Project).id!=0){
       this.projectEdit(response)
     }
+    else if(response instanceof Skill && (response as Skill).id===0){
+      this.skillAdd(response)
+    }
+    else if(response instanceof Skill && (response as Skill).id!=0){
+      this.skillEdit(response)
+    }
 })
   this.logued= this.auth.isUserLoggedIn()
   this.adm = this.auth.isAdmin()
@@ -83,6 +92,18 @@ console.log("Evento disparado.........");
       this.educations=data
     });
 
+    this.skillService.getSkills().subscribe((data : Skill[]) =>{
+        this.skills=data
+    });
+
+  }
+
+  skillDelete (skill:Skill){
+
+      this.skillService.deleteSkill(skill).subscribe(()=>
+      {
+        this.skills =this.skills.filter(s => s.id !== skill.id)
+      });
   }
 
   jobDelete (job : Job){
@@ -92,7 +113,11 @@ console.log("Evento disparado.........");
       this.jobs = this.jobs.filter ((j) => j.id !== job.id)
     ]);
   }
-
+skillAdd(skill:Skill){
+    this.skillService.editSkill(skill).subscribe(data => {
+      this.skills = this.skills.concat([data])
+    })
+}
   projectAdd (pro: Project){
 
 
@@ -228,6 +253,40 @@ console.log("Evento disparado.........");
             edun.setend=jb.getend
 
             return edun
+          }
+          else
+
+          return jb
+
+      }
+      )});
+
+
+      }
+
+      skillEdit (skill : Skill){
+
+
+        let index = 0;
+        let sk : Skill = skill;
+      this.skillService.editSkill(skill).subscribe ((data: Skill)=>{
+        sk=data
+
+
+      this.skills =this.skills.map( (jb, index, array) => {
+
+          if (jb.id === sk.id)
+          {
+            //console.log("evento jobEdit :     "+job.id);
+            sk.id=jb.id
+
+            sk.title="chupala....."
+            sk.subtitle=jb.subtitle
+            sk.percent=jb.percent
+
+
+
+            return sk
           }
           else
 

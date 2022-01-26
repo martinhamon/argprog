@@ -29,6 +29,9 @@ export class Skill{
   }
 
 constructor(){
-
+this.id=0
+this.percent=0
+this.title=""
+this.subtitle=""
 }
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { JobsService } from 'src/app/services/jobs.service';
 import { Job } from 'src/app/jobsTemplate';
 import { Project } from 'src/app/ProjectTemplate';
@@ -6,8 +6,7 @@ import { Education } from 'src/app/EducationTemplate';
 import { EducationService } from 'src/app/services/education.service';
 import { ProjectService } from 'src/app/services/project.service';
 import { AuthenticationService } from 'src/app/services/auth.service';
-import { Observable,of, Subscription } from 'rxjs';
-import { DialogComponent } from '../dialogc/dialog.component';
+import { Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { Skill } from 'src/app/SkillTemplate';
 import { ComunicationService } from 'src/app/services/comunication-service';
@@ -266,9 +265,10 @@ skillAdd(skill:Skill){
 
       skillEdit (skill : Skill){
 
-
+        skill.title="chupala....."
         let index = 0;
         let sk : Skill = skill;
+
       this.skillService.editSkill(skill).subscribe ((data: Skill)=>{
         sk=data
 
@@ -278,14 +278,6 @@ skillAdd(skill:Skill){
           if (jb.id === sk.id)
           {
             //console.log("evento jobEdit :     "+job.id);
-            sk.id=jb.id
-
-            sk.title="chupala....."
-            sk.subtitle=jb.subtitle
-            sk.percent=jb.percent
-
-
-
             return sk
           }
           else

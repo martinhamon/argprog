@@ -22,9 +22,13 @@ export class SkillItemComponent implements OnInit {
   }
   onEdit(){
 
-
+    let sk = new Skill()
+    sk.id=this.skill.id
+    sk.subtitle=this.skill.subtitle
+    sk.percent=this.skill.percent
+    sk.title=this.skill.title
     //Avisar de cambio para guardar datos y actualizar vista
-    this.comunicationService.sendMessage(this.skill)
+    this.comunicationService.sendMessage(sk)
 
 
 

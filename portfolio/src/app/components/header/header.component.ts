@@ -12,6 +12,7 @@ import { ComunicationService, } from 'src/app/services/comunication-service';
 import { Router } from '@angular/router';
 import { ProfileService } from 'src/app/services/profile.service';
 import { Profile } from 'src/app/profileTemplate';
+import { Skill } from 'src/app/SkillTemplate';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -45,6 +46,7 @@ export class HeaderComponent implements OnInit {
     let j : Job = new Job()
     let e : Education =  new Education()
     let p : Project = new Project()
+    let s : Skill = new Skill()
     let obj = undefined
 
     if (addType==="job")
@@ -53,9 +55,13 @@ export class HeaderComponent implements OnInit {
         obj=e
         else if (addType==="project")
         obj=p
+        else if (addType==="skills")
+        obj=s
 
 
     const dialogAdd = this.dialog.open(DialogComponent, {
+      height: '600px',
+      width: '400px',
      data: obj
 
     });

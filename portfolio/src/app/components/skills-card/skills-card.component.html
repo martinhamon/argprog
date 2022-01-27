@@ -1,27 +1,23 @@
-<mat-card class="jobs">
+<mat-card class="jobs" >
 
  <mat-card-content>
 
   <mat-toolbar color="primary">
     Card view demo
   </mat-toolbar>
-  <div class="content">
+  <div class="content" >
     <div fxLayout="row wrap" fxLayoutGap="16px grid">
-      <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let sk of skills">
+      <div  fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let sk of skills">
     <app-skill-item
     [skill]="sk"
+    (emitDeleteItem)="onDelete($event)"
     ></app-skill-item>
   </div>
 </div>
 </div>
 
  </mat-card-content>
-<mat-card-actions align="end"
-*ngIf="logued"
->
-  <app-image-button [icon]="iconEdit" class="btn-edit"></app-image-button>
-  <app-image-button [icon]="iconDelete" class="btn-edit"></app-image-button>
-</mat-card-actions>
+
 </mat-card>
 
 

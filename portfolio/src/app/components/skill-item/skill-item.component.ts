@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 import { ComunicationService } from 'src/app/services/comunication-service';
@@ -15,26 +15,35 @@ export class SkillItemComponent implements OnInit {
   diameter: number = 45
 
   @Input() skill : Skill= new Skill()
+  sk: Skill = this.skill
   mode: ProgressSpinnerMode = 'determinate';
+  @Output() emitDeleteItem : EventEmitter <Skill>= new EventEmitter();
   constructor(private comunicationService : ComunicationService) { }
 
   ngOnInit(): void {
   }
   onEdit(){
 
-    let sk = new Skill()
-    sk.id=this.skill.id
-    sk.subtitle=this.skill.subtitle
-    sk.percent=this.skill.percent
-    sk.title=this.skill.title
+
+    this.sk.id=this.skill.id
+    this.sk.subtitle=this.skill.subtitle
+    this.sk.percent=this.skill.percent
+    this. sk.title=this.skill.title
     //Avisar de cambio para guardar datos y actualizar vista
-    this.comunicationService.sendMessage(sk)
+    this.comunicationService.sendMessage(this.sk)
 
 
 
 
   }
   onDelete(){
+
+    this.sk.id=this.skill.id
+    this.sk.subtitle=this.skill.subtitle
+    this.sk.percent=this.skill.percent
+    this.sk.title=this.skill.title
+
+    this.emitDeleteItem.emit(this.sk)
 
   }
 }

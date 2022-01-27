@@ -87,21 +87,21 @@
   </div>
 </div>
 
-<!--div *ngIf="isSkill()">
+<div *ngIf="isSkill()">
   <h1 mat-dialog-title>Ingresar aptitud</h1>
   <div mat-dialog-content>
       <div style="display: flex;flex-direction: column; margin:1rem auto; max-width: 600px; padding: 1rem;">
 
-          <mat-form-field>
-              <input matInput  type="number" placeholder="Ingrese código">
-          </mat-form-field>
+        <mat-form-field>
+          <input matInput [(ngModel)]="skill.title" type="text" placeholder="Titulo">
+      </mat-form-field>
+
+      <mat-form-field>
+          <input matInput [(ngModel)]="skill.subtitle" type="text" placeholder="Subtitulo">
+      </mat-form-field>
 
           <mat-form-field>
-              <input matInput  type="text" placeholder="Ingrese descripción">
-          </mat-form-field>
-
-          <mat-form-field>
-              <input matInput  type="number" placeholder="Ingrese precio">
+              <input matInput [(ngModel)]="skill.percent" type="number" placeholder="Ingrese precio">
           </mat-form-field>
 
       </div>
@@ -110,7 +110,7 @@
       <button mat-button (click)="cancelar()">Cancelar</button>
       <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Confirmar</button>
   </div>
-</div-->
+</div>
 
 <div *ngIf="isProject()">
   <h1 mat-dialog-title>Ingresar proyecto</h1>

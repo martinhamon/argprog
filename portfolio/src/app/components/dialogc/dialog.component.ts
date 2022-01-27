@@ -3,6 +3,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 import { Education } from 'src/app/EducationTemplate';
 import { Job } from 'src/app/jobsTemplate';
 import { Project } from 'src/app/ProjectTemplate';
+import { Skill } from 'src/app/SkillTemplate';
 
 @Component({
   selector: 'app-dialog',
@@ -12,7 +13,7 @@ import { Project } from 'src/app/ProjectTemplate';
 export class DialogComponent implements OnInit {
  job :Job = new Job()
  edu :Education = new Education()
- //skill : Skill = new Skill()
+ skill : Skill = new Skill()
  pro : Project = new Project()
  //@Output() addData : EventEmitter<Job>= new EventEmitter()
   constructor(public dialogRef: MatDialogRef<DialogComponent>,
@@ -51,6 +52,12 @@ export class DialogComponent implements OnInit {
     this.data=this.pro
     return this.data instanceof  Project;
   }
+  isSkill(): boolean{
+    //   console.log(this.data instanceof  Project)
+         this.skill =this.data
+       this.data=this.skill
+       return this.data instanceof  Skill;
+     }
 
   updateDateJobStart(date : any){
      if(this.isJob())

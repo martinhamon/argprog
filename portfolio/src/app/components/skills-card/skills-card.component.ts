@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
@@ -19,10 +19,14 @@ export class SkillsCardComponent implements OnInit {
   mode: ProgressSpinnerMode = 'determinate';
   value = 50;
   diameter: number = 45
-
+  @Output() emitDeleteSkill : EventEmitter <Skill>= new EventEmitter();
   constructor() { }
 
   ngOnInit(): void {
   }
 
+
+  onDelete(skill : Skill){
+    this.emitDeleteSkill.emit(skill)
+  }
 }

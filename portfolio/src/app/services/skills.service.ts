@@ -13,18 +13,18 @@ export class SkillsService {
 
   getSkills(): Observable<Skill[]>{
 
-    return this.http.get<Skill[]>(LOCAL_API_URL+"skill/list");
+    return this.http.get<Skill[]>(API_URL+"skill/list");
   }
 
   editSkill (skill : Skill) : Observable<Skill>{
 
-    return this.http.post<Skill>(LOCAL_API_URL+"skill/add",skill);
+    return this.http.post<Skill>(API_URL+"skill/add",skill);
 
   }
 
   deleteSkill(skill : Skill) : Observable<Skill>
   {
-    return this.http.delete<Skill>(LOCAL_API_URL+"skill/delete/"+skill.id);
+    return this.http.delete<Skill>(API_URL+"skill/delete/"+skill.id);
   }
 
 }

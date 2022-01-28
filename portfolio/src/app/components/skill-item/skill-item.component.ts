@@ -1,9 +1,11 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 import { ComunicationService } from 'src/app/services/comunication-service';
 import { SkillsService } from 'src/app/services/skills.service';
 import { Skill } from 'src/app/SkillTemplate';
+import { DialogComponent } from '../dialogc/dialog.component';
 @Component({
   selector: 'app-skill-item',
   templateUrl: './skill-item.component.html',
@@ -18,23 +20,39 @@ export class SkillItemComponent implements OnInit {
   sk: Skill = this.skill
   mode: ProgressSpinnerMode = 'determinate';
   @Output() emitDeleteItem : EventEmitter <Skill>= new EventEmitter();
-  constructor(private comunicationService : ComunicationService) { }
+  constructor(public dialog: MatDialog, private comunicationService : ComunicationService) { }
 
   ngOnInit(): void {
   }
   onEdit(){
 
+    this.abrirDialogo()
+
+
+  }
+
+  abrirDialogo() {
 
     this.sk.id=this.skill.id
     this.sk.subtitle=this.skill.subtitle
     this.sk.percent=this.skill.percent
     this. sk.title=this.skill.title
-    //Avisar de cambio para guardar datos y actualizar vista
-    this.comunicationService.sendMessage(this.sk)
 
 
+    const dialogAdd = this.dialog.open(DialogComponent, {
+     data: this.sk
+    });
+   dialogAdd.afterClosed().subscribe(obj => {
+      if (obj != undefined)
+      {
+
+      //Avisar de cambio para guardar datos y actualizar vista
+      this.comunicationService.sendMessage(obj)
 
 
+      }
+
+    });
   }
   onDelete(){
 

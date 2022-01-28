@@ -6,3 +6,7 @@
 .content > mat-card {
   width: 100px;
 }
+
+.mat-toolbar{
+  border: 25px;
+}

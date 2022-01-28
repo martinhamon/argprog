@@ -11,6 +11,7 @@ import { AuthenticationService  } from 'src/app/services/auth.service';
 
 export class LoginComponent implements OnInit {
  form : FormGroup;
+ error : String=""
   constructor(private formBuilder :FormBuilder, private authService : AuthenticationService  , private rute : Router ) {
     this.form = this.formBuilder.group({
       userName : ['',[Validators.required]],//, Validators.email]],
@@ -34,10 +35,15 @@ export class LoginComponent implements OnInit {
 
    onLogin (event : Event){
      event.preventDefault
-     this.authService.authenticate( this.form.get('userName')?.value,this.form.get('password')?.value).subscribe(data =>{
+     this.authService.authenticate( this.form.get('userName')?.value,this.form.get('password')?.value).subscribe(
+       data =>{
       // console.log("Data:  " + JSON.stringify(data))
        this.rute.navigate(['/portfolio'])
-     })
+     },
+     console=>{
+            this.error="Credenciales no validas!!!"
+     });
+
    }
 
 }

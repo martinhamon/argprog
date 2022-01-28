@@ -265,7 +265,7 @@ skillAdd(skill:Skill){
 
       skillEdit (skill : Skill){
 
-        skill.title="chupala....."
+
         let index = 0;
         let sk : Skill = skill;
 

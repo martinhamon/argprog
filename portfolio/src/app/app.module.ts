@@ -41,6 +41,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SkillItemComponent } from './components/skill-item/skill-item.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -87,7 +88,11 @@ import { SkillItemComponent } from './components/skill-item/skill-item.component
     MatNativeDateModule
 
   ],
-  providers: [{ provide:HTTP_INTERCEPTORS, useClass:BasicAuthHtppInterceptorService, multi:true}],
+  providers: [
+    { provide:HTTP_INTERCEPTORS, useClass:BasicAuthHtppInterceptorService, multi:true,},
+    {provide: LocationStrategy,useClass:HashLocationStrategy}
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

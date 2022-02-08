@@ -7,10 +7,13 @@
     border-style: groove;
     border-width: 1px;
     border-color: darkgrey;
+
+
 }
 
 .mat-card#first-card{
     padding: 0;
+
 }
 .size{
   max-width: 500px;
@@ -43,6 +46,7 @@ div#info-actions
 
 .info{
   padding: 16px;
+
 }
 
 .info-data{
@@ -77,7 +81,7 @@ div#info-actions
 }
 
 .info-data{
-  max-width: 50%;
+ /* max-width: 50%;*/
 margin-top: -75px;
 word-wrap: break-word
 
@@ -112,7 +116,7 @@ word-wrap: break-word
 }
 
 .info-tech {
-  max-width: 50%;
+ /* max-width: 50%;*/
 margin-left: 70%;
 margin-top: -75px;
 padding-right: 10px;

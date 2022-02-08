@@ -18,3 +18,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   margin-right: 25px;
 }
 
+.mat-typography{
+ /* background-image: url("https://www.wallpapertip.com/wmimgs/13-131390_bi-background-light-blue-png-304043-background-for.png" );*/
+ background-color: currentColor;
+}
+
+/*.mat-card{
+  background-color: darkgray;
+
+}*/
+
+

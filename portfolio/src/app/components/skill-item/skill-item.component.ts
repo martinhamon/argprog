@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
+import { AuthenticationService } from 'src/app/services/auth.service';
 import { ComunicationService } from 'src/app/services/comunication-service';
 import { SkillsService } from 'src/app/services/skills.service';
 import { Skill } from 'src/app/SkillTemplate';
@@ -15,14 +16,18 @@ export class SkillItemComponent implements OnInit {
   color: ThemePalette = "accent";
   value = 50;
   diameter: number = 45
-
+  logued :boolean = false
+  adm : boolean = false
   @Input() skill : Skill= new Skill()
   sk: Skill = this.skill
   mode: ProgressSpinnerMode = 'determinate';
   @Output() emitDeleteItem : EventEmitter <Skill>= new EventEmitter();
-  constructor(public dialog: MatDialog, private comunicationService : ComunicationService) { }
+  constructor(public dialog: MatDialog, private comunicationService : ComunicationService,
+    private auth : AuthenticationService) { }
 
   ngOnInit(): void {
+    this.logued= this.auth.isUserLoggedIn()
+  this.adm = this.auth.isAdmin()
   }
   onEdit(){
 

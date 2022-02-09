@@ -42,6 +42,9 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SkillItemComponent } from './components/skill-item/skill-item.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { FileUploaderComponent } from './components/file-uploader/file-uploader.component';
+
+import { FileUploadModule } from 'ng2-file-upload';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,6 +62,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     DialogComponent,
     ProfileComponent,
     SkillItemComponent,
+    FileUploaderComponent,
 
 
   ],
@@ -85,7 +89,8 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     MatDialogModule,
     FormsModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    FileUploadModule
 
   ],
   providers: [

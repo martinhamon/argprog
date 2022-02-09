@@ -28,4 +28,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 }*/
 
+.info{
+  border-radius: 32px;
+}
+
+.darkgrey{
+  background-color: darkgray;
+}
+
 

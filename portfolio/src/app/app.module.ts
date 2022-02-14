@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 //Imports Material
+
 import { MatCardModule } from '@angular/material/card';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatButton, MatButtonModule} from '@angular/material/button';
@@ -43,8 +44,10 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { SkillItemComponent } from './components/skill-item/skill-item.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { FileUploaderComponent } from './components/file-uploader/file-uploader.component';
+import { MaterialFileInputModule } from 'ngx-material-file-input';
 
-import { FileUploadModule } from 'ng2-file-upload';
+import { FileSelectDirective, FileDropDirective, FileUploadModule } from 'ng2-file-upload';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -90,7 +93,7 @@ import { FileUploadModule } from 'ng2-file-upload';
     FormsModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    FileUploadModule
+    FileUploadModule,
 
   ],
   providers: [

@@ -2,6 +2,8 @@
 <app-nav-bar
   (LogInClick)='onClickButtonNavBarLogOutLogIn($event)'
    (LogOutClick)='onClickButtonNavBarLogOutLogIn($event)' ></app-nav-bar>
+   <button mat-raised-button (click)="onSetTheme('dark-theme')">Dark Theme</button>
+<button mat-raised-button (click)="onSetTheme('light-theme')">Light Theme</button>
    <router-outlet class="main"></router-outlet>
 
 

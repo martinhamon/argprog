@@ -11,6 +11,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { Skill } from 'src/app/SkillTemplate';
 import { ComunicationService } from 'src/app/services/comunication-service';
 import { SkillsService } from 'src/app/services/skills.service';
+
+
 @Component({
   selector: 'app-body',
   templateUrl: './body.component.html',
@@ -26,6 +28,10 @@ export class BodyComponent implements OnInit {
   logued :boolean = false
   adm : boolean = false
  private comuServiceEndRef : Subscription =new Subscription
+
+
+
+
   constructor(private jobsservice :JobsService,
     private educationService: EducationService, private projectService: ProjectService,
     private auth : AuthenticationService, public dialog: MatDialog, private comuicationService : ComunicationService
@@ -293,6 +299,9 @@ skillAdd(skill:Skill){
       openDialog(){
 
       }
+
+
+
 
 
 

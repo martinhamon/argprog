@@ -30,8 +30,11 @@ $dark-theme:   mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
 .dark-theme {
   @include angular-material-theme($dark-theme);
 
-}
 
+}
+body{
+  background-color: rgb(66, 54, 54);
+}
 .light-theme {
   @include angular-material-theme($light-app-theme);
 

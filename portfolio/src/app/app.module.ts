@@ -47,6 +47,7 @@ import { FileUploaderComponent } from './components/file-uploader/file-uploader.
 import { MaterialFileInputModule } from 'ngx-material-file-input';
 
 import { FileSelectDirective, FileDropDirective, FileUploadModule } from 'ng2-file-upload';
+import { ImgdialogComponent } from './components/imgdialog/imgdialog.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { FileSelectDirective, FileDropDirective, FileUploadModule } from 'ng2-fi
     ProfileComponent,
     SkillItemComponent,
     FileUploaderComponent,
+    ImgdialogComponent,
 
 
   ],

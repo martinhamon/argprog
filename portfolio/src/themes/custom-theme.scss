@@ -39,3 +39,19 @@ body{
   @include angular-material-theme($light-app-theme);
 
 }
+.my-dark-theme {
+  $my-alternate-primary: mat-palette($mat-grey);
+  $my-alternate-accent: mat-palette($mat-grey, 400);
+  $my-alternate-warn: mat-palette($mat-grey);
+  $my-alternate-theme: mat-light-theme($my-alternate-primary, $my-alternate-accent, $my-alternate-warn);
+  @include angular-material-theme($my-alternate-theme);
+}
+
+.my-light-theme{
+  $my-alternate-primary: mat-palette($mat-blue-grey);
+  $my-alternate-accent: mat-palette($mat-blue-grey, 400);
+  $my-alternate-warn: mat-palette($mat-blue-grey);
+  $my-alternate-theme: mat-light-theme($my-alternate-primary, $my-alternate-accent, $my-alternate-warn);
+  @include angular-material-theme($my-alternate-theme);
+  margin-left: 10px;
+}

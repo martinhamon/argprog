@@ -11,7 +11,7 @@ import { OverlayContainer } from '@angular/cdk/overlay';
 export class AppComponent {
   title = 'portfolio';
   @HostBinding('class') compoentCssClass: any;
-
+  
 
 constructor( public overlayContainer : OverlayContainer){}
 
@@ -24,6 +24,7 @@ constructor( public overlayContainer : OverlayContainer){}
     this.overlayContainer.getContainerElement().classList.add(e);
 
     this.compoentCssClass = e;
+    
 
   }
 }

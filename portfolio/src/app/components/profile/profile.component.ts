@@ -21,6 +21,7 @@ export class ProfileComponent implements OnInit {
     this.comuServiceEndRef.unsubscribe()
   }
   ngOnInit(): void {
+    this.profile.logo="../../../assets/images/avatar.jpg"
     this.profileService.getProfile(1).subscribe(data=> {
       this.profile=data
       if(!this.islogoValid())

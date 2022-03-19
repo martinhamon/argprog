@@ -31,7 +31,9 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.logued= this.auth.isUserLoggedIn()
   this.adm = this.auth.isAdmin()
+  this.profile.logo="../../../assets/images/avatar.jpg"
    this.profileService.getProfile(1).subscribe(data=> {
+    
       this.profile=data
 
    })
